@@ -545,6 +545,7 @@
 
   function setRealm(realm) {
     state.realm = realm;
+    state.bookIndex = 0;
     document.documentElement.setAttribute("data-realm", realm);
     const metaTheme = document.querySelector('meta[name="theme-color"]');
     if (metaTheme) metaTheme.setAttribute("content", realm === "celestiale" ? "#060914" : "#EFE7D6");
@@ -557,7 +558,21 @@
     if (sub) {
       sub.textContent = realm === "celestiale" ? "MAPPA CELESTIALE // 2026" : "GRIMORIO VENEZIANO // ARCHIVIO 2025";
     }
-    setView(realm === "celestiale" ? "map" : "grimoire");
+
+    // Update mobile dock realm switcher label
+    const dockIcon = document.getElementById("dock-realm-icon");
+    const dockLbl = document.getElementById("dock-realm-label");
+    if (dockIcon && dockLbl) {
+      dockIcon.textContent = realm === "celestiale" ? "❦" : "✦";
+      dockLbl.textContent = realm === "celestiale" ? "2025" : "2026";
+    }
+
+    // On smartphone & tablet (<= 900px), open directly as the Illuminated Hermetic Book Web App!
+    if (window.innerWidth <= 900) {
+      setView("book");
+    } else {
+      setView(realm === "celestiale" ? "map" : "grimoire");
+    }
   }
 
   function setView(view) {
@@ -565,11 +580,17 @@
     document.documentElement.setAttribute("data-view", view);
     document.getElementById("celestial-map-view")?.classList.toggle("is-active", view === "map");
     document.getElementById("grimoire-view")?.classList.toggle("is-active", view === "grimoire");
+    document.getElementById("codex-book-view")?.classList.toggle("is-active", view === "book");
 
     const lbl = document.getElementById("toggle-view-label");
     if (lbl) lbl.textContent = view === "map" ? "☷ VISTA GRIMORIO" : "✦ VISTA MAPPA";
 
+    document.querySelectorAll("[data-dock-view]").forEach((btn) => {
+      btn.classList.toggle("is-active", btn.dataset.dockView === view);
+    });
+
     if (view === "map") renderConstellationMap();
+    else if (view === "book") renderBookFolio(0);
     else renderGrimoireGrid();
   }
 
@@ -1196,6 +1217,252 @@
   }
 
   /* ========================================================================
+     9B. LIBRO ERMETICO / CODEX FOLIO ENGINE (MOBILE & TABLET WEB APP)
+  ======================================================================== */
+  let folioLoadToken = 0;
+  let folioBufferA = true;
+  let folioZoomIdx = 0;
+
+  function playPageRustle() {
+    const ctx = ensureAudio();
+    if (!ctx) return;
+    const dur = 0.14;
+    const buf = ctx.createBuffer(1, Math.floor(ctx.sampleRate * dur), ctx.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let i = 0; i < data.length; i++) {
+      const env = Math.sin((i / data.length) * Math.PI);
+      data[i] = (Math.random() * 2 - 1) * env * 0.14;
+    }
+    const src = ctx.createBufferSource();
+    src.buffer = buf;
+    const filter = ctx.createBiquadFilter();
+    filter.type = "bandpass";
+    filter.frequency.value = 1400;
+    filter.Q.value = 1.2;
+    src.connect(filter);
+    filter.connect(ctx.destination);
+    src.start();
+    if (navigator.vibrate) navigator.vibrate(10);
+  }
+
+  function getBookList() {
+    return ARTWORKS.filter((a) => a.era === state.realm);
+  }
+
+  function switchFolioOculus(art, layerIdx, silent = false) {
+    const layers = art.zoomLayers && art.zoomLayers.length
+      ? art.zoomLayers
+      : [{ level: 1, label: "I · MACROCOSMOS", subtitle: "Tavola", src: art.src || art.thumb }];
+    const clamped = Math.max(0, Math.min(layers.length - 1, layerIdx));
+    folioZoomIdx = clamped;
+    const layer = layers[clamped];
+
+    const depthPill = document.getElementById("folio-depth-pill");
+    if (depthPill) {
+      depthPill.style.display = layers.length > 1 ? "inline-block" : "none";
+      depthPill.textContent = layer.label;
+    }
+    document.querySelectorAll(".folio-oculus-btn").forEach((b, i) => {
+      b.classList.toggle("is-active", i === clamped);
+    });
+
+    const token = ++folioLoadToken;
+    preloadImage(layer.src).then(() => {
+      if (token !== folioLoadToken) return;
+      const imgA = document.getElementById("folio-img-a");
+      const imgB = document.getElementById("folio-img-b");
+      const incoming = folioBufferA ? imgB : imgA;
+      const outgoing = folioBufferA ? imgA : imgB;
+      folioBufferA = !folioBufferA;
+      if (incoming && outgoing) {
+        incoming.src = layer.src;
+        incoming.alt = `${art.title} — ${layer.label}`;
+        void incoming.offsetWidth;
+        incoming.classList.add("is-visible");
+        outgoing.classList.remove("is-visible");
+      }
+      const iris = document.getElementById("folio-iris-ring");
+      if (iris && !silent) {
+        iris.classList.remove("is-pulsing");
+        void iris.offsetWidth;
+        iris.classList.add("is-pulsing");
+        playMysticBell(432 + clamped * 114, 0.45, 0.04);
+      }
+    });
+  }
+
+  function renderBookFolio(direction = 0) {
+    const list = getBookList();
+    if (!list.length) return;
+    const total = list.length;
+    const idx = ((state.bookIndex || 0) % total + total) % total;
+    state.bookIndex = idx;
+    const art = list[idx];
+
+    const card = document.getElementById("folio-card");
+    if (card) {
+      card.classList.remove("is-flipped", "turn-next", "turn-prev");
+      if (direction !== 0) {
+        void card.offsetWidth;
+        card.classList.add(direction > 0 ? "turn-next" : "turn-prev");
+        playPageRustle();
+      }
+    }
+
+    // Immediate zero-flash thumb display
+    folioLoadToken++;
+    const imgA = document.getElementById("folio-img-a");
+    const imgB = document.getElementById("folio-img-b");
+    if (imgA && imgB) {
+      imgA.src = art.thumb;
+      imgA.alt = art.title;
+      imgA.classList.add("is-visible");
+      imgB.classList.remove("is-visible");
+      imgB.removeAttribute("src");
+      folioBufferA = true;
+    }
+
+    // Preload current zoom layers + adjacent folio thumbs
+    const layers = art.zoomLayers || [];
+    layers.forEach((l) => preloadImage(l.src));
+    preloadImage(list[(idx + 1) % total]?.thumb);
+    preloadImage(list[(idx - 1 + total) % total]?.thumb);
+
+    const chapterEl = document.getElementById("folio-chapter");
+    const counterEl = document.getElementById("folio-counter");
+    if (chapterEl) {
+      chapterEl.textContent = state.realm === "celestiale"
+        ? "LIBER I · MAPPA CELESTIALE 2026"
+        : "LIBER II · GRIMORIO VENEZIANO 2025";
+    }
+    if (counterEl) counterEl.textContent = `FOL. ${art.roman} / ${total}`;
+
+    document.getElementById("folio-stage-pill").textContent = art.stage;
+    document.getElementById("folio-roman").textContent = `LAMINA ${art.roman}`;
+    document.getElementById("folio-title").textContent = art.title;
+    document.getElementById("folio-back-roman").textContent = `ARCANO ${art.roman} · ${art.year}`;
+    document.getElementById("folio-back-title").textContent = art.title;
+    document.getElementById("folio-back-oracle").textContent = `«${art.oracle}»`;
+    document.getElementById("folio-back-formula").textContent = art.formula;
+    document.getElementById("folio-back-notes").textContent = art.notes;
+
+    // Scrubber sync
+    const scrubber = document.getElementById("folio-scrubber");
+    if (scrubber) {
+      scrubber.max = String(Math.max(0, total - 1));
+      scrubber.value = String(idx);
+    }
+
+    // Inline 3-layer Oculus switcher
+    const oculus = document.getElementById("folio-oculus");
+    if (oculus) {
+      if (layers.length > 1) {
+        oculus.style.display = "grid";
+        oculus.innerHTML = "";
+        const shortNames = ["I · MACRO", "II · MESO", "III · MICRO"];
+        layers.forEach((lay, i) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "folio-oculus-btn" + (i === 0 ? " is-active" : "");
+          btn.textContent = shortNames[i] || lay.label;
+          btn.addEventListener("click", () => switchFolioOculus(art, i));
+          oculus.appendChild(btn);
+        });
+      } else {
+        oculus.style.display = "none";
+      }
+    }
+
+    // Living Video Awaken Button right on the book page
+    const awakenBtn = document.getElementById("folio-awaken-btn");
+    if (awakenBtn) {
+      awakenBtn.style.display = art.video ? "inline-flex" : "none";
+      awakenBtn.style.justifyContent = "center";
+      awakenBtn.style.alignItems = "center";
+      awakenBtn.onclick = () => awakenArtworkFullscreen(art);
+    }
+
+    switchFolioOculus(art, 0, true);
+  }
+
+  function initCodexBook() {
+    const shell = document.getElementById("codex-book-shell");
+    const card = document.getElementById("folio-card");
+
+    document.getElementById("folio-prev-btn")?.addEventListener("click", () => {
+      state.bookIndex = (state.bookIndex || 0) - 1;
+      renderBookFolio(-1);
+    });
+    document.getElementById("folio-next-btn")?.addEventListener("click", () => {
+      state.bookIndex = (state.bookIndex || 0) + 1;
+      renderBookFolio(1);
+    });
+    document.getElementById("folio-scrubber")?.addEventListener("input", (e) => {
+      state.bookIndex = Number(e.target.value);
+      renderBookFolio(0);
+    });
+    document.getElementById("folio-flip-btn")?.addEventListener("click", () => {
+      card?.classList.add("is-flipped");
+      playPageRustle();
+    });
+    document.getElementById("folio-unflip-btn")?.addEventListener("click", () => {
+      card?.classList.remove("is-flipped");
+      playPageRustle();
+    });
+
+    // Tap plate to cycle Oculus depth (or open lightbox for single-layer)
+    document.getElementById("folio-plate-wrap")?.addEventListener("click", () => {
+      const list = getBookList();
+      const art = list[state.bookIndex || 0];
+      if (!art) return;
+      const len = (art.zoomLayers || []).length;
+      if (len > 1) {
+        switchFolioOculus(art, (folioZoomIdx + 1) % len);
+      } else {
+        openLightbox(list, state.bookIndex || 0);
+      }
+    });
+
+    // Natural Horizontal Swipe to Turn Book Pages
+    let sx = 0;
+    let sy = 0;
+    shell?.addEventListener("touchstart", (e) => {
+      if (e.touches.length !== 1) return;
+      sx = e.touches[0].clientX;
+      sy = e.touches[0].clientY;
+    }, { passive: true });
+
+    shell?.addEventListener("touchend", (e) => {
+      if (e.changedTouches.length !== 1) return;
+      if (e.target && e.target.tagName === "INPUT") return; // Don't hijack scrubber
+      const dx = e.changedTouches[0].clientX - sx;
+      const dy = e.changedTouches[0].clientY - sy;
+      if (Math.abs(dx) > 46 && Math.abs(dx) > Math.abs(dy) * 1.35) {
+        if (dx < 0) {
+          state.bookIndex = (state.bookIndex || 0) + 1;
+          renderBookFolio(1);
+        } else {
+          state.bookIndex = (state.bookIndex || 0) - 1;
+          renderBookFolio(-1);
+        }
+      }
+    }, { passive: true });
+
+    // Mobile Thumb-Zone Bottom Dock Bindings
+    document.querySelectorAll("[data-dock-view]").forEach((btn) => {
+      btn.addEventListener("click", () => setView(btn.dataset.dockView));
+    });
+    document.getElementById("dock-oracle-btn")?.addEventListener("click", () => {
+      const m = document.getElementById("oracle-modal");
+      m?.classList.add("is-open");
+      m?.setAttribute("aria-hidden", "false");
+    });
+    document.getElementById("dock-realm-btn")?.addEventListener("click", () => {
+      setRealm(state.realm === "celestiale" ? "grimorio" : "celestiale");
+    });
+  }
+
+  /* ========================================================================
      10. BOOTSTRAP
   ======================================================================== */
   function init() {
@@ -1208,6 +1475,7 @@
     initGate();
     initMapInteractions();
     initLivingControls();
+    initCodexBook();
 
     document.querySelectorAll("[data-set-realm]").forEach((btn) => {
       btn.addEventListener("click", () => setRealm(btn.dataset.setRealm));

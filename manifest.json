@@ -1,0 +1,18 @@
+{
+  "name": "CODEX HERMETICUS — Nicola Vianello",
+  "short_name": "CODEX",
+  "description": "Libro Ermetico & Portale di Collage Esoterici — Mappa Celestiale 2026 e Grimorio Veneziano 2025.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#060914",
+  "theme_color": "#060914",
+  "icons": [
+    {
+      "src": "MEDIA/codex-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

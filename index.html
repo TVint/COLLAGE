@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#060914" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="CODEX" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="MEDIA/codex-icon.svg" />
+  <link rel="apple-touch-icon" href="MEDIA/codex-icon.svg" />
   <title>NICOLA VIANELLO — CODEX HERMETICUS // COLLAGE ESOTERICI</title>
   <meta name="description" content="Portale Ermetico di Nicola Vianello — Archivio di Collage Esoterici, Grimorio Veneziano (2025) e Mappa Celestiale (2026) con animazioni viventi." />
 
@@ -251,7 +257,103 @@
       <div id="grimoire-grid" class="grimoire-grid"></div>
     </section>
 
+    <!-- VISTA 3: LIBRO ERMETICO / CODEX FOLIO (WEB APP MOBILE & TABLET) -->
+    <section id="codex-book-view" class="codex-book-view" aria-label="Libro Ermetico Sfoglia-Pagine">
+      <div class="codex-book-shell" id="codex-book-shell">
+        <div class="codex-spine" aria-hidden="true"></div>
+        <div class="codex-page-edges" aria-hidden="true"></div>
+
+        <!-- Intestazione Capitolo & Numero Folio -->
+        <header class="folio-header">
+          <span class="folio-chapter" id="folio-chapter">LIBER I · MAPPA CELESTIALE</span>
+          <span class="folio-counter" id="folio-counter">FOL. I / XXII</span>
+        </header>
+
+        <!-- Pagina Sfoglia-Folio con Flip 3D (Fronte: Tavola + Oculus · Retro: Formula & Oracolo) -->
+        <div class="folio-stage" id="folio-stage">
+          <div class="folio-card" id="folio-card">
+            <!-- FRONTE DELLA PAGINA -->
+            <div class="folio-face folio-face--front">
+              <div class="folio-ornament folio-ornament--tl" aria-hidden="true">✦</div>
+              <div class="folio-ornament folio-ornament--tr" aria-hidden="true">✦</div>
+
+              <div class="folio-plate-wrap" id="folio-plate-wrap">
+                <img id="folio-img-a" class="lb-layer-img is-visible" src="" alt="" />
+                <img id="folio-img-b" class="lb-layer-img" src="" alt="" />
+                <div class="lb-iris-ring" id="folio-iris-ring" aria-hidden="true"></div>
+                <span class="folio-stage-pill" id="folio-stage-pill">NIGREDO</span>
+                <span class="folio-depth-pill" id="folio-depth-pill" style="display:none;">I · MACROCOSMOS</span>
+              </div>
+
+              <div class="folio-caption">
+                <span class="folio-roman" id="folio-roman">LAMINA I</span>
+                <h2 class="folio-title" id="folio-title">ASTRAL KEEPER</h2>
+              </div>
+
+              <!-- Oculus 3-Strati direttamente sulla pagina del libro -->
+              <div class="folio-oculus" id="folio-oculus" style="display:none;"></div>
+
+              <!-- Azioni Pagina: Risveglia Video + Gira Pagina -->
+              <div class="folio-actions">
+                <button type="button" class="folio-btn folio-btn--awaken" id="folio-awaken-btn" style="display:none;">
+                  ✦ RISVEGLIA VIDEO
+                </button>
+                <button type="button" class="folio-btn" id="folio-flip-btn">
+                  ↻ RETRO ALCHEMICO
+                </button>
+              </div>
+            </div>
+
+            <!-- RETRO DELLA PAGINA (PERGAMENA SEGRETA) -->
+            <div class="folio-face folio-face--back">
+              <div class="folio-back-seal" aria-hidden="true">☉</div>
+              <span class="folio-roman" id="folio-back-roman">ARCANO I</span>
+              <h3 class="folio-title" id="folio-back-title">ASTRAL KEEPER</h3>
+              <blockquote class="folio-back-oracle" id="folio-back-oracle"></blockquote>
+              <p class="folio-back-formula" id="folio-back-formula"></p>
+              <p class="folio-back-notes" id="folio-back-notes"></p>
+              <button type="button" class="folio-btn" id="folio-unflip-btn">↻ TORNA ALLA TAVOLA</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigazione Sfoglia-Pagine + Segnalibro Scorrimento Rapido -->
+        <footer class="folio-nav">
+          <button type="button" class="folio-turn-btn" id="folio-prev-btn" aria-label="Pagina Precedente">←</button>
+          <div class="folio-ribbon-wrap">
+            <input type="range" id="folio-scrubber" min="0" max="21" value="0" aria-label="Sfoglia i fogli del codice" />
+            <span class="folio-swipe-hint">← SCORRI PER SFOGLIARE LE PAGINE →</span>
+          </div>
+          <button type="button" class="folio-turn-btn" id="folio-next-btn" aria-label="Pagina Successiva">→</button>
+        </footer>
+      </div>
+    </section>
+
   </main>
+
+  <!-- DOCK INFERIORE WEB APP (ZONA POLLICE PER SMARTPHONE & TABLET) -->
+  <nav id="mobile-book-dock" class="mobile-book-dock" aria-label="Navigazione Libro Ermetico">
+    <button type="button" class="dock-item is-active" data-dock-view="book">
+      <span class="dock-icon">📖</span>
+      <span class="dock-label">LIBRO</span>
+    </button>
+    <button type="button" class="dock-item" data-dock-view="map">
+      <span class="dock-icon">✦</span>
+      <span class="dock-label">MAPPA</span>
+    </button>
+    <button type="button" class="dock-item" data-dock-view="grimoire">
+      <span class="dock-icon">☷</span>
+      <span class="dock-label">INDICE</span>
+    </button>
+    <button type="button" class="dock-item" id="dock-oracle-btn">
+      <span class="dock-icon">✧</span>
+      <span class="dock-label">ORACOLO</span>
+    </button>
+    <button type="button" class="dock-item" id="dock-realm-btn">
+      <span class="dock-icon" id="dock-realm-icon">❦</span>
+      <span class="dock-label" id="dock-realm-label">2025</span>
+    </button>
+  </nav>
 
   <!-- =========================================================================
        MODALE ORACOLO ("INTERROGA L'ARCHIVIO")

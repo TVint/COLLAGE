@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#060914"/>
+  <rect x="28" y="28" width="456" height="456" fill="none" stroke="#E6C677" stroke-width="6"/>
+  <rect x="44" y="44" width="424" height="424" fill="none" stroke="#E6C677" stroke-opacity="0.35" stroke-width="2"/>
+  <circle cx="256" cy="256" r="164" fill="none" stroke="#E6C677" stroke-width="4"/>
+  <circle cx="256" cy="256" r="130" fill="none" stroke="#E6C677" stroke-dasharray="6 10" stroke-width="2"/>
+  <polygon points="256,96 392,332 120,332" fill="none" stroke="#E6C677" stroke-width="4"/>
+  <polygon points="256,416 392,180 120,180" fill="none" stroke="#E6C677" stroke-opacity="0.5" stroke-width="2.5"/>
+  <circle cx="256" cy="256" r="56" fill="#060914" stroke="#E6C677" stroke-width="3"/>
+  <text x="256" y="274" text-anchor="middle" fill="#FFF0BE" font-family="Georgia, serif" font-size="52" font-weight="700" letter-spacing="4">NV</text>
+</svg>

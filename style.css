@@ -1121,14 +1121,393 @@ html[data-realm="grimorio"] .venetian-grain {
 .living-btn--close:hover { background: #D64545; color: #FFF; }
 
 /* ==========================================================================
-   7. RESPONSIVE (TABLET & SMARTPHONE)
+   7. LIBRO ERMETICO / CODEX FOLIO (WEB APP MOBILE & TABLET)
+   ========================================================================== */
+.codex-book-view {
+  display: none;
+  min-height: calc(100dvh - var(--hud-h));
+  padding: 12px 14px calc(86px + env(safe-area-inset-bottom, 0px));
+  align-items: center;
+  justify-content: center;
+}
+
+.codex-book-view.is-active {
+  display: flex;
+}
+
+.codex-book-shell {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  min-height: calc(100dvh - var(--hud-h) - 96px - env(safe-area-inset-bottom, 0px));
+  background: var(--card-bg);
+  border: 1.5px solid var(--gold);
+  outline: 1px solid var(--gold-soft);
+  outline-offset: -7px;
+  border-radius: 3px 12px 12px 3px;
+  padding: 16px 16px 14px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow:
+    inset 22px 0 32px rgba(0, 0, 0, 0.42),
+    8px 0 0 -2px var(--bg-surface),
+    10px 0 0 -1px var(--border),
+    15px 0 0 -3px var(--bg-surface),
+    17px 0 0 -2px var(--border),
+    0 24px 60px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+html[data-realm="grimorio"] .codex-book-shell {
+  box-shadow:
+    inset 22px 0 28px rgba(68, 46, 20, 0.24),
+    7px 0 0 -2px #E4D6B8,
+    9px 0 0 -1px rgba(143, 107, 41, 0.5),
+    14px 0 0 -3px #DFCFAF,
+    16px 0 0 -2px rgba(143, 107, 41, 0.4),
+    0 22px 48px rgba(42, 28, 12, 0.22);
+}
+
+/* Gilded Book Spine Line */
+.codex-spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--gold), transparent);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.folio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+}
+
+.folio-chapter { color: var(--gold); font-weight: 600; }
+.folio-counter { color: var(--text-muted); }
+
+/* 3D Page-Turn & Flip Stage */
+.folio-stage {
+  flex: 1;
+  perspective: 1400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.folio-card {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+}
+
+.folio-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.folio-card.turn-next {
+  animation: pageTurnNext 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.folio-card.turn-prev {
+  animation: pageTurnPrev 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes pageTurnNext {
+  0%   { opacity: 0.25; transform: translateX(36px) rotateY(-14deg); }
+  100% { opacity: 1; transform: translateX(0) rotateY(0); }
+}
+
+@keyframes pageTurnPrev {
+  0%   { opacity: 0.25; transform: translateX(-36px) rotateY(14deg); }
+  100% { opacity: 1; transform: translateX(0) rotateY(0); }
+}
+
+.folio-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.folio-face--back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 12px;
+  background: var(--card-bg);
+  border: 1px dashed var(--border);
+}
+
+.folio-ornament {
+  position: absolute;
+  top: -2px;
+  font-size: 10px;
+  color: var(--gold);
+  opacity: 0.65;
+  pointer-events: none;
+}
+.folio-ornament--tl { left: -2px; }
+.folio-ornament--tr { right: -2px; }
+
+.folio-plate-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--gold);
+  background: #04060D;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.folio-stage-pill {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 5;
+  padding: 3px 8px;
+  background: rgba(6, 9, 20, 0.82);
+  border: 1px solid rgba(230, 198, 119, 0.55);
+  color: #E6C677;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+}
+
+.folio-depth-pill {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  z-index: 5;
+  padding: 3px 8px;
+  background: rgba(6, 9, 20, 0.82);
+  border: 1px solid rgba(230, 198, 119, 0.55);
+  color: #FFF0BE;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+}
+
+.folio-caption {
+  text-align: center;
+}
+
+.folio-roman {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+}
+
+.folio-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 4.5vw, 1.45rem);
+  letter-spacing: 0.12em;
+  margin-top: 2px;
+}
+
+/* Inline Oculus 3-Layer Bar on the Book Page */
+.folio-oculus {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.folio-oculus-btn {
+  padding: 7px 4px;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
+
+.folio-oculus-btn.is-active {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #060914;
+  font-weight: 700;
+}
+
+.folio-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.folio-btn {
+  flex: 1;
+  padding: 10px 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  min-height: 40px;
+  transition: all 0.2s ease;
+}
+
+.folio-btn--awaken {
+  border-color: #FFF0BE;
+  background: linear-gradient(135deg, rgba(230, 198, 119, 0.28), rgba(143, 107, 41, 0.16));
+  color: #FFF0BE;
+  font-weight: 600;
+  box-shadow: 0 0 18px rgba(230, 198, 119, 0.3);
+}
+
+.folio-back-seal {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.folio-back-oracle {
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  margin: 8px 0;
+  padding: 0 8px;
+}
+
+.folio-back-formula {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+.folio-back-notes {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+/* Folio Turn Controls & Ribbon Scrubber */
+.folio-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.folio-turn-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.folio-ribbon-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.folio-ribbon-wrap input[type="range"] {
+  width: 100%;
+  accent-color: var(--gold);
+}
+
+.folio-swipe-hint {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+/* Native Thumb-Zone Bottom Dock (Mobile & Tablet <= 900px) */
+.mobile-book-dock {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1200;
+  background: var(--bg-hud);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-top: 1px solid var(--border);
+  padding: 6px 8px calc(8px + env(safe-area-inset-bottom, 0px));
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+}
+
+.dock-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 6px 2px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.dock-item.is-active {
+  color: var(--gold);
+  background: var(--gold-soft);
+}
+
+.dock-icon { font-size: 15px; line-height: 1; }
+.dock-label { font-size: 8.5px; letter-spacing: 0.1em; font-weight: 600; }
+
+/* ==========================================================================
+   8. RESPONSIVE (TABLET & SMARTPHONE WEB APP)
    ========================================================================== */
 @media (max-width: 900px) {
-  .portal-hud { flex-wrap: wrap; padding: calc(8px + env(safe-area-inset-top, 0px)) 12px 8px; }
-  .hud-realms { order: 3; width: 100%; display: grid; grid-template-columns: 1fr 1fr; }
-  .realm-btn { justify-content: center; }
-  .portal-main { padding-top: 104px; }
-  .map-view { height: calc(100dvh - 104px); }
+  .portal-hud {
+    padding: calc(6px + env(safe-area-inset-top, 0px)) 14px 6px;
+    min-height: 52px;
+  }
+  .hud-realms,
+  #toggle-view-btn,
+  #open-oracle-btn {
+    display: none !important;
+  }
+  .mobile-book-dock {
+    display: grid;
+  }
+  .portal-main {
+    padding-top: calc(52px + env(safe-area-inset-top, 0px));
+  }
+  .map-view {
+    height: calc(100dvh - 52px - 68px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  }
+  .grimoire-view {
+    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+  }
+  .map-controls {
+    bottom: calc(82px + env(safe-area-inset-bottom, 0px));
+  }
   .lb-body { grid-template-columns: 1fr; }
 }
 
@@ -1144,12 +1523,12 @@ html[data-realm="grimorio"] .venetian-grain {
 }
 
 /* ==========================================================================
-   8. STAMPA TALISMANO / GRIMORIO VENEZIANO (@media print)
+   9. STAMPA TALISMANO / GRIMORIO VENEZIANO (@media print)
    ========================================================================== */
 @media print {
   @page { size: A4 portrait; margin: 14mm; }
   html, body { background: #FFFFFF !important; color: #14100C !important; overflow: visible !important; }
-  .hermetic-gate, .portal-hud, .celestial-bg, .venetian-grain, .map-view, .stage-filters, .arcana-flip-btn, .modal-overlay, .living-stage { display: none !important; }
+  .hermetic-gate, .portal-hud, .mobile-book-dock, .codex-book-view, .celestial-bg, .venetian-grain, .map-view, .stage-filters, .arcana-flip-btn, .modal-overlay, .living-stage { display: none !important; }
   .portal-main { padding-top: 0 !important; }
   .grimoire-view { display: block !important; padding: 0 !important; }
   .grimoire-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 14px !important; }
