@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCRIPTORIUM CMS — CODEX HERMETICUS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- PASSWORD GATE (finefilo) -->
+  <div id="admin-lock" class="admin-lock">
+    <form id="admin-login-form" class="lock-box">
+      <div class="lock-kicker">CODEX HERMETICUS // SCRIPTORIUM CMS</div>
+      <h1>ACCESSO CUSTODE</h1>
+      <input type="password" id="admin-pwd-input" placeholder="Parola d'ordine..." autocomplete="current-password" required />
+      <button type="submit" class="btn-gold">⚷ SBLOCCA SCRIPTORIUM</button>
+      <p id="admin-login-err" class="login-err"></p>
+    </form>
+  </div>
+
+  <!-- TOP BAR -->
+  <header class="cms-topbar">
+    <div class="cms-brand">
+      <span class="cms-badge">NV</span>
+      <div>
+        <strong>SCRIPTORIUM CMS</strong>
+        <span id="cms-status-text">72 LAMINE PRONTE</span>
+      </div>
+    </div>
+
+    <div class="cms-actions">
+      <button type="button" class="cms-btn" id="btn-rescan">🔄 SINCRONIZZA 2025/2026</button>
+      <button type="button" class="cms-btn btn-gold" id="btn-save">💾 SALVA CODICE</button>
+      <a href="index.html" target="_blank" class="cms-btn" style="text-decoration:none;">↗ APRI PORTALE</a>
+    </div>
+  </header>
+
+  <main class="cms-layout">
+
+    <!-- SEZIONE 1: CONFIGURATORE DELLA SOGLIA ERMETICA -->
+    <section class="gate-config-card">
+      <div class="card-head">
+        <div>
+          <span class="kicker">CHIAVE INIZIATICA // CONTROLLO PORTA</span>
+          <h2>LA SOGLIA ERMETICA — CHIAVE DI ACCESSO ATTIVA</h2>
+        </div>
+        <label class="toggle-bypass">
+          <input type="checkbox" id="cfg-curator-bypass" checked />
+          <span>Mostra «⚷ Passaggio del Curatore»</span>
+        </label>
+      </div>
+
+      <div class="gate-options-grid" id="gate-options-grid">
+        <button type="button" class="gate-opt is-active" data-gate-opt="sound">
+          <span class="gate-opt__icon">♪</span>
+          <strong>FREQUENZA ERMETICA</strong>
+          <span>Sequenza musicale cimatica (Default)</span>
+        </button>
+        <button type="button" class="gate-opt" data-gate-opt="astrolabe">
+          <span class="gate-opt__icon">☉</span>
+          <strong>ASTROLABIO DI ERMETE</strong>
+          <span>3 anelli concentrici da allineare allo Zenith</span>
+        </button>
+        <button type="button" class="gate-opt" data-gate-opt="mirror">
+          <span class="gate-opt__icon">△</span>
+          <strong>TAVOLA SMERALDINA</strong>
+          <span>Speculum «Come in Alto, Così in Basso»</span>
+        </button>
+        <button type="button" class="gate-opt" data-gate-opt="sigil">
+          <span class="gate-opt__icon">✦</span>
+          <strong>SIGILLO TRACCIATO</strong>
+          <span>Costellazione a 5 nodi da unire a mano</span>
+        </button>
+        <button type="button" class="gate-opt" data-gate-opt="all">
+          <span class="gate-opt__icon">❖</span>
+          <strong>TUTTE LE 4 CHIAVI</strong>
+          <span>Il visitatore sceglie il rituale</span>
+        </button>
+      </div>
+
+      <!-- COMPOSITORE SEQUENZA MUSICALE -->
+      <div class="melody-composer">
+        <div class="melody-head">
+          <span class="kicker">COMPOSITORE ACCORDO SEGRETO (2—6 NOTE)</span>
+          <div class="melody-current" id="melody-preview-pills"></div>
+        </div>
+        <div class="melody-controls">
+          <button type="button" class="cms-btn melody-add" data-note="0">+ ☉ SOL (432 Hz)</button>
+          <button type="button" class="cms-btn melody-add" data-note="1">+ ☽ LUNA (528 Hz)</button>
+          <button type="button" class="cms-btn melody-add" data-note="2">+ ☿ MERCURIUS (639 Hz)</button>
+          <button type="button" class="cms-btn melody-add" data-note="3">+ ♀ VENUS (741 Hz)</button>
+          <button type="button" class="cms-btn btn-gold" id="btn-test-melody">▶ ASCOLTA</button>
+          <button type="button" class="cms-btn btn-danger" id="btn-clear-melody">✕ AZZERA</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEZIONE 2: ARCHIVIO LAMINE + ISPETTORE -->
+    <section class="archive-workspace">
+      <div class="archive-left">
+        <div class="filter-toolbar">
+          <button type="button" class="flt-btn is-active" data-flt="ALL">TUTTE</button>
+          <button type="button" class="flt-btn" data-flt="celestiale">✦ CELESTIALE 2026</button>
+          <button type="button" class="flt-btn" data-flt="grimorio">❦ GRIMORIO 2025</button>
+          <button type="button" class="flt-btn" data-flt="VIDEO">▶ CON VIDEO</button>
+          <input type="search" id="search-input" class="cms-search" placeholder="Cerca lamina..." />
+        </div>
+
+        <div id="cms-grid" class="cms-grid"></div>
+      </div>
+
+      <aside class="inspector-panel" id="inspector-panel">
+        <div class="inspector-empty" id="inspector-empty">
+          Seleziona una lamina a sinistra per modificarne titolo, epoca, grado alchemico, formula e frammento oracolare.
+        </div>
+
+        <form id="inspector-form" class="inspector-form" style="display:none;">
+          <div class="inspector-preview">
+            <img id="ins-thumb" src="" alt="" />
+            <div class="ins-badges" id="ins-badges"></div>
+          </div>
+
+          <label>
+            <span>TITOLO LAMINA</span>
+            <input type="text" id="ins-title" />
+          </label>
+
+          <div class="ins-row-2">
+            <label>
+              <span>NUMERO ROMANO</span>
+              <input type="text" id="ins-roman" />
+            </label>
+            <label>
+              <span>ANNO</span>
+              <input type="number" id="ins-year" />
+            </label>
+          </div>
+
+          <div class="ins-row-2">
+            <label>
+              <span>EPOCA / REGNO</span>
+              <select id="ins-era">
+                <option value="celestiale">✦ Mappa Celestiale (2026)</option>
+                <option value="grimorio">❦ Grimorio Veneziano (2025)</option>
+              </select>
+            </label>
+            <label>
+              <span>GRADO ALCHEMICO</span>
+              <select id="ins-stage">
+                <option value="NIGREDO">I · NIGREDO</option>
+                <option value="ALBEDO">II · ALBEDO</option>
+                <option value="CITRINITAS">III · CITRINITAS</option>
+                <option value="RUBEDO">IV · RUBEDO</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            <span>FORMULA TECNICA</span>
+            <input type="text" id="ins-formula" />
+          </label>
+
+          <label>
+            <span>FRAMMENTO ORACOLARE</span>
+            <textarea id="ins-oracle" rows="3"></textarea>
+          </label>
+
+          <label>
+            <span>NOTE CURATORIALI (RETRO LAMINA)</span>
+            <textarea id="ins-notes" rows="3"></textarea>
+          </label>
+        </form>
+      </aside>
+    </section>
+
+  </main>
+
+  <div id="cms-toast" class="cms-toast" role="status" aria-live="polite"></div>
+
+  <script src="artworks-data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

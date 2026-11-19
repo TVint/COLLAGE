@@ -1,0 +1,2085 @@
+window.ARTWORKS_MANIFEST = {
+  "generatedAt": "2026-11-19T02:55:38.379734",
+  "config": {
+    "activeGate": "sound",
+    "soundSequence": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "showCuratorBypass": true
+  },
+  "total": 72,
+  "counts": {
+    "celestiale": 22,
+    "grimorio": 50,
+    "videos": 8
+  },
+  "artworks": [
+    {
+      "id": "cel-001",
+      "index": 1,
+      "roman": "I",
+      "filename": "Astral Keeper_1.jpg",
+      "folder": "Astral Keeper",
+      "title": "ASTRAL KEEPER",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2026_Astral_Keeper.jpg",
+      "src": "MEDIA/zoom/2026_Astral_Keeper_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Astral_Keeper_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Astral_Keeper_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Astral_Keeper_z3.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
+      "oracle": "Ciò che è in basso è come ciò che è in alto, per compiere i miracoli della Cosa Una.",
+      "notes": "Lamina I — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-002",
+      "index": 2,
+      "roman": "II",
+      "filename": "Astro Queen_1.jpg",
+      "folder": "Astro Queen",
+      "title": "ASTRO QUEEN",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2026_Astro_Queen.jpg",
+      "src": "MEDIA/zoom/2026_Astro_Queen_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Astro_Queen_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Astro_Queen_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Astro_Queen_z3.jpg"
+        }
+      ],
+      "video": "MEDIA/video/2026_Astro_Queen.mp4",
+      "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
+      "oracle": "Nella materia oscura dorme la scintilla d'oro; l'occhio che osserva separa il sottile dallo spesso.",
+      "notes": "Lamina II — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-003",
+      "index": 3,
+      "roman": "III",
+      "filename": "Beyond Shipwreck_1.jpg",
+      "folder": "Beyond Shipwreck",
+      "title": "BEYOND SHIPWRECK",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2026_Beyond_Shipwreck.jpg",
+      "src": "MEDIA/zoom/2026_Beyond_Shipwreck_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Beyond_Shipwreck_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Beyond_Shipwreck_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Beyond_Shipwreck_z3.jpg"
+        }
+      ],
+      "video": "MEDIA/video/2026_Beyond_Shipwreck.mp4",
+      "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
+      "oracle": "Ogni frammento strappato al tempo ricompone una mappa invisibile dello spirito.",
+      "notes": "Lamina III — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-004",
+      "index": 4,
+      "roman": "IV",
+      "filename": "Brain Network_1.jpg",
+      "folder": "Brain Network",
+      "title": "BRAIN NETWORK",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2026_Brain_Network.jpg",
+      "src": "MEDIA/zoom/2026_Brain_Network_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Brain_Network_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Brain_Network_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Brain_Network_z3.jpg"
+        }
+      ],
+      "video": "MEDIA/video/2026_Brain_Network.mp4",
+      "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
+      "oracle": "Il silenzio è la chiave della prima porta; la geometria è il linguaggio della seconda.",
+      "notes": "Lamina IV — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-005",
+      "index": 5,
+      "roman": "V",
+      "filename": "Cosmos Jumper_1.jpg",
+      "folder": "Cosmos Jumper",
+      "title": "COSMOS JUMPER",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2026_Cosmos_Jumper.jpg",
+      "src": "MEDIA/zoom/2026_Cosmos_Jumper_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Cosmos_Jumper_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Cosmos_Jumper_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Cosmos_Jumper_z3.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
+      "oracle": "Dissolvi la forma conosciuta e coagula il simbolo: così nasce la nuova lamina.",
+      "notes": "Lamina V — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-006",
+      "index": 6,
+      "roman": "VI",
+      "filename": "Cubik Wizard_1.jpg",
+      "folder": "Cubik Wizard",
+      "title": "CUBIK WIZARD",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2026_Cubik_Wizard.jpg",
+      "src": "MEDIA/zoom/2026_Cubik_Wizard_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Cubik_Wizard_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Cubik_Wizard_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Cubik_Wizard_z3.jpg"
+        }
+      ],
+      "video": "MEDIA/video/2026_Cubik_Wizard.mp4",
+      "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
+      "oracle": "Tra l'ombra della laguna e il firmamento, il collage è un ponte tra due mondi.",
+      "notes": "Lamina VI — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-007",
+      "index": 7,
+      "roman": "VII",
+      "filename": "Desert Magician_1.jpg",
+      "folder": "Desert Magician",
+      "title": "DESERT MAGICIAN",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2026_Desert_Magician.jpg",
+      "src": "MEDIA/zoom/2026_Desert_Magician_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Desert_Magician_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Desert_Magician_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Desert_Magician_z3.jpg"
+        }
+      ],
+      "video": "MEDIA/video/2026_Desert_Magician.mp4",
+      "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
+      "oracle": "L'arco teso nel cosmo non cerca un bersaglio, ma un centro immobile.",
+      "notes": "Lamina VII — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-008",
+      "index": 8,
+      "roman": "VIII",
+      "filename": "Divine Echo_1.jpg",
+      "folder": "Divine Echo",
+      "title": "DIVINE ECHO",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2026_Divine_Echo.jpg",
+      "src": "MEDIA/zoom/2026_Divine_Echo_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Divine_Echo_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Divine_Echo_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Divine_Echo_z3.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
+      "oracle": "Sotto la carta antica scorre un circuito di luce: ogni taglio è un'incisione rituale.",
+      "notes": "Lamina VIII — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-009",
+      "index": 9,
+      "roman": "IX",
+      "filename": "Eternal Doorway_1.jpg",
+      "folder": "Eternal Doorway",
+      "title": "ETERNAL DOORWAY",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2026_Eternal_Doorway.jpg",
+      "src": "MEDIA/zoom/2026_Eternal_Doorway_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Eternal_Doorway_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Eternal_Doorway_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Eternal_Doorway_z3.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
+      "oracle": "Ciò che è in basso è come ciò che è in alto, per compiere i miracoli della Cosa Una.",
+      "notes": "Lamina IX — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-010",
+      "index": 10,
+      "roman": "X",
+      "filename": "Galaxy Explorer_1.jpg",
+      "folder": "Galaxy Explorer",
+      "title": "GALAXY EXPLORER",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2026_Galaxy_Explorer.jpg",
+      "src": "MEDIA/zoom/2026_Galaxy_Explorer_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Galaxy_Explorer_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Galaxy_Explorer_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Galaxy_Explorer_z3.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
+      "oracle": "Nella materia oscura dorme la scintilla d'oro; l'occhio che osserva separa il sottile dallo spesso.",
+      "notes": "Lamina X — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-011",
+      "index": 11,
+      "roman": "XI",
+      "filename": "Gnostic Hand_1.jpg",
+      "folder": "Gnostic Hand",
+      "title": "GNOSTIC HAND",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2026_Gnostic_Hand.jpg",
+      "src": "MEDIA/zoom/2026_Gnostic_Hand_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Gnostic_Hand_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Gnostic_Hand_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Gnostic_Hand_z3.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
+      "oracle": "Ogni frammento strappato al tempo ricompone una mappa invisibile dello spirito.",
+      "notes": "Lamina XI — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-012",
+      "index": 12,
+      "roman": "XII",
+      "filename": "Lake Angel_1.jpg",
+      "folder": "Lake Angel",
+      "title": "LAKE ANGEL",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2026_Lake_Angel.jpg",
+      "src": "MEDIA/zoom/2026_Lake_Angel_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Lake_Angel_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Lake_Angel_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Lake_Angel_z3.jpg"
+        }
+      ],
+      "video": "MEDIA/video/2026_Lake_Angel.mp4",
+      "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
+      "oracle": "Il silenzio è la chiave della prima porta; la geometria è il linguaggio della seconda.",
+      "notes": "Lamina XII — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-013",
+      "index": 13,
+      "roman": "XIII",
+      "filename": "Lonely Widow_1.jpg",
+      "folder": "Lonely Widow",
+      "title": "LONELY WIDOW",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2026_Lonely_Widow.jpg",
+      "src": "MEDIA/zoom/2026_Lonely_Widow_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Lonely_Widow_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Lonely_Widow_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Lonely_Widow_z3.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
+      "oracle": "Dissolvi la forma conosciuta e coagula il simbolo: così nasce la nuova lamina.",
+      "notes": "Lamina XIII — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-014",
+      "index": 14,
+      "roman": "XIV",
+      "filename": "Moody Shaman_1.jpg",
+      "folder": "Moody Shaman",
+      "title": "MOODY SHAMAN",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2026_Moody_Shaman.jpg",
+      "src": "MEDIA/zoom/2026_Moody_Shaman_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Moody_Shaman_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Moody_Shaman_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Moody_Shaman_z3.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
+      "oracle": "Tra l'ombra della laguna e il firmamento, il collage è un ponte tra due mondi.",
+      "notes": "Lamina XIV — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-015",
+      "index": 15,
+      "roman": "XV",
+      "filename": "Mysteries Mind_1.jpg",
+      "folder": "Mysteries Mind",
+      "title": "MYSTERIES MIND",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2026_Mysteries_Mind.jpg",
+      "src": "MEDIA/zoom/2026_Mysteries_Mind_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Mysteries_Mind_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Mysteries_Mind_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Mysteries_Mind_z3.jpg"
+        }
+      ],
+      "video": "MEDIA/video/2026_Mysteries_Mind.mp4",
+      "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
+      "oracle": "L'arco teso nel cosmo non cerca un bersaglio, ma un centro immobile.",
+      "notes": "Lamina XV — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-016",
+      "index": 16,
+      "roman": "XVI",
+      "filename": "Mystical Wayfarer_1.jpg",
+      "folder": "Mystical Wayfarer",
+      "title": "MYSTICAL WAYFARER",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2026_Mystical_Wayfarer.jpg",
+      "src": "MEDIA/zoom/2026_Mystical_Wayfarer_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Mystical_Wayfarer_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Mystical_Wayfarer_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Mystical_Wayfarer_z3.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
+      "oracle": "Sotto la carta antica scorre un circuito di luce: ogni taglio è un'incisione rituale.",
+      "notes": "Lamina XVI — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-017",
+      "index": 17,
+      "roman": "XVII",
+      "filename": "Rooted Mind_1.jpg",
+      "folder": "Rooted Mind",
+      "title": "ROOTED MIND",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2026_Rooted_Mind.jpg",
+      "src": "MEDIA/zoom/2026_Rooted_Mind_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Rooted_Mind_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Rooted_Mind_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Rooted_Mind_z3.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
+      "oracle": "Ciò che è in basso è come ciò che è in alto, per compiere i miracoli della Cosa Una.",
+      "notes": "Lamina XVII — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-018",
+      "index": 18,
+      "roman": "XVIII",
+      "filename": "Secret Window_1.jpg",
+      "folder": "Secret Window",
+      "title": "SECRET WINDOW",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2026_Secret_Window.jpg",
+      "src": "MEDIA/zoom/2026_Secret_Window_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Secret_Window_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Secret_Window_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Secret_Window_z3.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
+      "oracle": "Nella materia oscura dorme la scintilla d'oro; l'occhio che osserva separa il sottile dallo spesso.",
+      "notes": "Lamina XVIII — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-019",
+      "index": 19,
+      "roman": "XIX",
+      "filename": "Skybound Aviator_1.jpg",
+      "folder": "Skybound Aviator",
+      "title": "SKYBOUND AVIATOR",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2026_Skybound_Aviator.jpg",
+      "src": "MEDIA/zoom/2026_Skybound_Aviator_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Skybound_Aviator_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Skybound_Aviator_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Skybound_Aviator_z3.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
+      "oracle": "Ogni frammento strappato al tempo ricompone una mappa invisibile dello spirito.",
+      "notes": "Lamina XIX — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-020",
+      "index": 20,
+      "roman": "XX",
+      "filename": "Star Gate_1.jpg",
+      "folder": "Star Gate",
+      "title": "STAR GATE",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2026_Star_Gate.jpg",
+      "src": "MEDIA/zoom/2026_Star_Gate_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Star_Gate_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Star_Gate_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Star_Gate_z3.jpg"
+        }
+      ],
+      "video": "MEDIA/video/2026_Star_Gate.mp4",
+      "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
+      "oracle": "Il silenzio è la chiave della prima porta; la geometria è il linguaggio della seconda.",
+      "notes": "Lamina XX — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-021",
+      "index": 21,
+      "roman": "XXI",
+      "filename": "Stellar Sprinter_1.jpg",
+      "folder": "Stellar Sprinter",
+      "title": "STELLAR SPRINTER",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2026_Stellar_Sprinter.jpg",
+      "src": "MEDIA/zoom/2026_Stellar_Sprinter_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_Stellar_Sprinter_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_Stellar_Sprinter_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_Stellar_Sprinter_z3.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
+      "oracle": "Dissolvi la forma conosciuta e coagula il simbolo: così nasce la nuova lamina.",
+      "notes": "Lamina XXI — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "cel-022",
+      "index": 22,
+      "roman": "XXII",
+      "filename": "The Archer_1.jpg",
+      "folder": "The Archer",
+      "title": "THE ARCHER",
+      "era": "celestiale",
+      "year": 2026,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2026_The_Archer.jpg",
+      "src": "MEDIA/zoom/2026_The_Archer_z1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Visione Integrale",
+          "src": "MEDIA/zoom/2026_The_Archer_z1.jpg"
+        },
+        {
+          "level": 2,
+          "label": "II · MESOCOSMOS",
+          "subtitle": "Soglia Intermedia",
+          "src": "MEDIA/zoom/2026_The_Archer_z2.jpg"
+        },
+        {
+          "level": 3,
+          "label": "III · MICROCOSMOS",
+          "subtitle": "Cuore Materico",
+          "src": "MEDIA/zoom/2026_The_Archer_z3.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
+      "oracle": "Tra l'ombra della laguna e il firmamento, il collage è un ponte tra due mondi.",
+      "notes": "Lamina XXII — Serie Celestiale 2026 di Nicola Vianello."
+    },
+    {
+      "id": "gri-001",
+      "index": 23,
+      "roman": "I",
+      "filename": "1.jpg",
+      "folder": "2025",
+      "title": "LAMINA I",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2025_1.jpg",
+      "src": "MEDIA/zoom/2025_1.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_1.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Ciò che è in basso è come ciò che è in alto, per compiere i miracoli della Cosa Una.",
+      "notes": "Lamina I — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-002",
+      "index": 24,
+      "roman": "II",
+      "filename": "2.jpg",
+      "folder": "2025",
+      "title": "LAMINA II",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2025_2.jpg",
+      "src": "MEDIA/zoom/2025_2.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_2.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Nella materia oscura dorme la scintilla d'oro; l'occhio che osserva separa il sottile dallo spesso.",
+      "notes": "Lamina II — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-003",
+      "index": 25,
+      "roman": "III",
+      "filename": "3.jpg",
+      "folder": "2025",
+      "title": "LAMINA III",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2025_3.jpg",
+      "src": "MEDIA/zoom/2025_3.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_3.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Ogni frammento strappato al tempo ricompone una mappa invisibile dello spirito.",
+      "notes": "Lamina III — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-004",
+      "index": 26,
+      "roman": "IV",
+      "filename": "4.jpg",
+      "folder": "2025",
+      "title": "LAMINA IV",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2025_4.jpg",
+      "src": "MEDIA/zoom/2025_4.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_4.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Il silenzio è la chiave della prima porta; la geometria è il linguaggio della seconda.",
+      "notes": "Lamina IV — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-005",
+      "index": 27,
+      "roman": "V",
+      "filename": "5.jpg",
+      "folder": "2025",
+      "title": "LAMINA V",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2025_5.jpg",
+      "src": "MEDIA/zoom/2025_5.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_5.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Dissolvi la forma conosciuta e coagula il simbolo: così nasce la nuova lamina.",
+      "notes": "Lamina V — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-006",
+      "index": 28,
+      "roman": "VI",
+      "filename": "6.jpg",
+      "folder": "2025",
+      "title": "LAMINA VI",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2025_6.jpg",
+      "src": "MEDIA/zoom/2025_6.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_6.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Tra l'ombra della laguna e il firmamento, il collage è un ponte tra due mondi.",
+      "notes": "Lamina VI — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-007",
+      "index": 29,
+      "roman": "VII",
+      "filename": "7.jpg",
+      "folder": "2025",
+      "title": "LAMINA VII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2025_7.jpg",
+      "src": "MEDIA/zoom/2025_7.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_7.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "L'arco teso nel cosmo non cerca un bersaglio, ma un centro immobile.",
+      "notes": "Lamina VII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-008",
+      "index": 30,
+      "roman": "VIII",
+      "filename": "8.jpg",
+      "folder": "2025",
+      "title": "LAMINA VIII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2025_8.jpg",
+      "src": "MEDIA/zoom/2025_8.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_8.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Sotto la carta antica scorre un circuito di luce: ogni taglio è un'incisione rituale.",
+      "notes": "Lamina VIII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-009",
+      "index": 31,
+      "roman": "IX",
+      "filename": "9.jpg",
+      "folder": "2025",
+      "title": "LAMINA IX",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2025_9.jpg",
+      "src": "MEDIA/zoom/2025_9.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_9.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Ciò che è in basso è come ciò che è in alto, per compiere i miracoli della Cosa Una.",
+      "notes": "Lamina IX — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-010",
+      "index": 32,
+      "roman": "X",
+      "filename": "10.jpg",
+      "folder": "2025",
+      "title": "LAMINA X",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2025_10.jpg",
+      "src": "MEDIA/zoom/2025_10.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_10.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Nella materia oscura dorme la scintilla d'oro; l'occhio che osserva separa il sottile dallo spesso.",
+      "notes": "Lamina X — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-011",
+      "index": 33,
+      "roman": "XI",
+      "filename": "11.jpg",
+      "folder": "2025",
+      "title": "LAMINA XI",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2025_11.jpg",
+      "src": "MEDIA/zoom/2025_11.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_11.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Ogni frammento strappato al tempo ricompone una mappa invisibile dello spirito.",
+      "notes": "Lamina XI — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-012",
+      "index": 34,
+      "roman": "XII",
+      "filename": "12.jpg",
+      "folder": "2025",
+      "title": "LAMINA XII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2025_12.jpg",
+      "src": "MEDIA/zoom/2025_12.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_12.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Il silenzio è la chiave della prima porta; la geometria è il linguaggio della seconda.",
+      "notes": "Lamina XII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-013",
+      "index": 35,
+      "roman": "XIII",
+      "filename": "13.jpg",
+      "folder": "2025",
+      "title": "LAMINA XIII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2025_13.jpg",
+      "src": "MEDIA/zoom/2025_13.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_13.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Dissolvi la forma conosciuta e coagula il simbolo: così nasce la nuova lamina.",
+      "notes": "Lamina XIII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-014",
+      "index": 36,
+      "roman": "XIV",
+      "filename": "14.jpg",
+      "folder": "2025",
+      "title": "LAMINA XIV",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2025_14.jpg",
+      "src": "MEDIA/zoom/2025_14.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_14.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Tra l'ombra della laguna e il firmamento, il collage è un ponte tra due mondi.",
+      "notes": "Lamina XIV — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-015",
+      "index": 37,
+      "roman": "XV",
+      "filename": "15.jpg",
+      "folder": "2025",
+      "title": "LAMINA XV",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2025_15.jpg",
+      "src": "MEDIA/zoom/2025_15.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_15.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "L'arco teso nel cosmo non cerca un bersaglio, ma un centro immobile.",
+      "notes": "Lamina XV — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-016",
+      "index": 38,
+      "roman": "XVI",
+      "filename": "16.jpg",
+      "folder": "2025",
+      "title": "LAMINA XVI",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2025_16.jpg",
+      "src": "MEDIA/zoom/2025_16.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_16.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Sotto la carta antica scorre un circuito di luce: ogni taglio è un'incisione rituale.",
+      "notes": "Lamina XVI — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-017",
+      "index": 39,
+      "roman": "XVII",
+      "filename": "17.jpg",
+      "folder": "2025",
+      "title": "LAMINA XVII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2025_17.jpg",
+      "src": "MEDIA/zoom/2025_17.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_17.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Ciò che è in basso è come ciò che è in alto, per compiere i miracoli della Cosa Una.",
+      "notes": "Lamina XVII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-018",
+      "index": 40,
+      "roman": "XVIII",
+      "filename": "18.jpg",
+      "folder": "2025",
+      "title": "LAMINA XVIII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2025_18.jpg",
+      "src": "MEDIA/zoom/2025_18.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_18.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Nella materia oscura dorme la scintilla d'oro; l'occhio che osserva separa il sottile dallo spesso.",
+      "notes": "Lamina XVIII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-019",
+      "index": 41,
+      "roman": "XIX",
+      "filename": "19.jpg",
+      "folder": "2025",
+      "title": "LAMINA XIX",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2025_19.jpg",
+      "src": "MEDIA/zoom/2025_19.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_19.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Ogni frammento strappato al tempo ricompone una mappa invisibile dello spirito.",
+      "notes": "Lamina XIX — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-020",
+      "index": 42,
+      "roman": "XX",
+      "filename": "20.jpg",
+      "folder": "2025",
+      "title": "LAMINA XX",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2025_20.jpg",
+      "src": "MEDIA/zoom/2025_20.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_20.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Il silenzio è la chiave della prima porta; la geometria è il linguaggio della seconda.",
+      "notes": "Lamina XX — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-021",
+      "index": 43,
+      "roman": "XXI",
+      "filename": "21.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXI",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2025_21.jpg",
+      "src": "MEDIA/zoom/2025_21.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_21.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Dissolvi la forma conosciuta e coagula il simbolo: così nasce la nuova lamina.",
+      "notes": "Lamina XXI — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-022",
+      "index": 44,
+      "roman": "XXII",
+      "filename": "22.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2025_22.jpg",
+      "src": "MEDIA/zoom/2025_22.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_22.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Tra l'ombra della laguna e il firmamento, il collage è un ponte tra due mondi.",
+      "notes": "Lamina XXII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-023",
+      "index": 45,
+      "roman": "XXIII",
+      "filename": "23.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXIII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2025_23.jpg",
+      "src": "MEDIA/zoom/2025_23.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_23.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "L'arco teso nel cosmo non cerca un bersaglio, ma un centro immobile.",
+      "notes": "Lamina XXIII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-024",
+      "index": 46,
+      "roman": "XXIV",
+      "filename": "24.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXIV",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2025_24.jpg",
+      "src": "MEDIA/zoom/2025_24.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_24.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Sotto la carta antica scorre un circuito di luce: ogni taglio è un'incisione rituale.",
+      "notes": "Lamina XXIV — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-025",
+      "index": 47,
+      "roman": "XXV",
+      "filename": "25.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXV",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2025_25.jpg",
+      "src": "MEDIA/zoom/2025_25.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_25.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Ciò che è in basso è come ciò che è in alto, per compiere i miracoli della Cosa Una.",
+      "notes": "Lamina XXV — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-026",
+      "index": 48,
+      "roman": "XXVI",
+      "filename": "26.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXVI",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2025_26.jpg",
+      "src": "MEDIA/zoom/2025_26.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_26.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Nella materia oscura dorme la scintilla d'oro; l'occhio che osserva separa il sottile dallo spesso.",
+      "notes": "Lamina XXVI — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-027",
+      "index": 49,
+      "roman": "XXVII",
+      "filename": "27.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXVII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2025_27.jpg",
+      "src": "MEDIA/zoom/2025_27.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_27.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Ogni frammento strappato al tempo ricompone una mappa invisibile dello spirito.",
+      "notes": "Lamina XXVII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-028",
+      "index": 50,
+      "roman": "XXVIII",
+      "filename": "28.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXVIII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2025_28.jpg",
+      "src": "MEDIA/zoom/2025_28.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_28.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Il silenzio è la chiave della prima porta; la geometria è il linguaggio della seconda.",
+      "notes": "Lamina XXVIII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-029",
+      "index": 51,
+      "roman": "XXIX",
+      "filename": "29.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXIX",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2025_29.jpg",
+      "src": "MEDIA/zoom/2025_29.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_29.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Dissolvi la forma conosciuta e coagula il simbolo: così nasce la nuova lamina.",
+      "notes": "Lamina XXIX — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-030",
+      "index": 52,
+      "roman": "XXX",
+      "filename": "30.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXX",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2025_30.jpg",
+      "src": "MEDIA/zoom/2025_30.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_30.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Tra l'ombra della laguna e il firmamento, il collage è un ponte tra due mondi.",
+      "notes": "Lamina XXX — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-031",
+      "index": 53,
+      "roman": "XXXI",
+      "filename": "31.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXXI",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2025_31.jpg",
+      "src": "MEDIA/zoom/2025_31.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_31.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "L'arco teso nel cosmo non cerca un bersaglio, ma un centro immobile.",
+      "notes": "Lamina XXXI — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-032",
+      "index": 54,
+      "roman": "XXXII",
+      "filename": "32.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXXII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2025_32.jpg",
+      "src": "MEDIA/zoom/2025_32.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_32.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Sotto la carta antica scorre un circuito di luce: ogni taglio è un'incisione rituale.",
+      "notes": "Lamina XXXII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-033",
+      "index": 55,
+      "roman": "XXXIII",
+      "filename": "33.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXXIII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2025_33.jpg",
+      "src": "MEDIA/zoom/2025_33.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_33.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Ciò che è in basso è come ciò che è in alto, per compiere i miracoli della Cosa Una.",
+      "notes": "Lamina XXXIII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-034",
+      "index": 56,
+      "roman": "XXXIV",
+      "filename": "34.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXXIV",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2025_34.jpg",
+      "src": "MEDIA/zoom/2025_34.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_34.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Nella materia oscura dorme la scintilla d'oro; l'occhio che osserva separa il sottile dallo spesso.",
+      "notes": "Lamina XXXIV — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-035",
+      "index": 57,
+      "roman": "XXXV",
+      "filename": "35.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXXV",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2025_35.jpg",
+      "src": "MEDIA/zoom/2025_35.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_35.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Ogni frammento strappato al tempo ricompone una mappa invisibile dello spirito.",
+      "notes": "Lamina XXXV — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-036",
+      "index": 58,
+      "roman": "XXXVI",
+      "filename": "36.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXXVI",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2025_36.jpg",
+      "src": "MEDIA/zoom/2025_36.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_36.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Il silenzio è la chiave della prima porta; la geometria è il linguaggio della seconda.",
+      "notes": "Lamina XXXVI — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-037",
+      "index": 59,
+      "roman": "XXXVII",
+      "filename": "37.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXXVII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2025_37.jpg",
+      "src": "MEDIA/zoom/2025_37.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_37.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Dissolvi la forma conosciuta e coagula il simbolo: così nasce la nuova lamina.",
+      "notes": "Lamina XXXVII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-038",
+      "index": 60,
+      "roman": "XXXVIII",
+      "filename": "38.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXXVIII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2025_38.jpg",
+      "src": "MEDIA/zoom/2025_38.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_38.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Tra l'ombra della laguna e il firmamento, il collage è un ponte tra due mondi.",
+      "notes": "Lamina XXXVIII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-039",
+      "index": 61,
+      "roman": "XXXIX",
+      "filename": "39.jpg",
+      "folder": "2025",
+      "title": "LAMINA XXXIX",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2025_39.jpg",
+      "src": "MEDIA/zoom/2025_39.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_39.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "L'arco teso nel cosmo non cerca un bersaglio, ma un centro immobile.",
+      "notes": "Lamina XXXIX — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-040",
+      "index": 62,
+      "roman": "XL",
+      "filename": "40.jpg",
+      "folder": "2025",
+      "title": "LAMINA XL",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2025_40.jpg",
+      "src": "MEDIA/zoom/2025_40.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_40.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Sotto la carta antica scorre un circuito di luce: ogni taglio è un'incisione rituale.",
+      "notes": "Lamina XL — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-041",
+      "index": 63,
+      "roman": "XLI",
+      "filename": "41.jpg",
+      "folder": "2025",
+      "title": "LAMINA XLI",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2025_41.jpg",
+      "src": "MEDIA/zoom/2025_41.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_41.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Ciò che è in basso è come ciò che è in alto, per compiere i miracoli della Cosa Una.",
+      "notes": "Lamina XLI — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-042",
+      "index": 64,
+      "roman": "XLII",
+      "filename": "42.jpg",
+      "folder": "2025",
+      "title": "LAMINA XLII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2025_42.jpg",
+      "src": "MEDIA/zoom/2025_42.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_42.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Nella materia oscura dorme la scintilla d'oro; l'occhio che osserva separa il sottile dallo spesso.",
+      "notes": "Lamina XLII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-043",
+      "index": 65,
+      "roman": "XLIII",
+      "filename": "43.jpg",
+      "folder": "2025",
+      "title": "LAMINA XLIII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2025_43.jpg",
+      "src": "MEDIA/zoom/2025_43.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_43.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Ogni frammento strappato al tempo ricompone una mappa invisibile dello spirito.",
+      "notes": "Lamina XLIII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-044",
+      "index": 66,
+      "roman": "XLIV",
+      "filename": "44.jpg",
+      "folder": "2025",
+      "title": "LAMINA XLIV",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2025_44.jpg",
+      "src": "MEDIA/zoom/2025_44.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_44.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Il silenzio è la chiave della prima porta; la geometria è il linguaggio della seconda.",
+      "notes": "Lamina XLIV — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-045",
+      "index": 67,
+      "roman": "XLV",
+      "filename": "45.jpg",
+      "folder": "2025",
+      "title": "LAMINA XLV",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2025_45.jpg",
+      "src": "MEDIA/zoom/2025_45.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_45.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Dissolvi la forma conosciuta e coagula il simbolo: così nasce la nuova lamina.",
+      "notes": "Lamina XLV — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-046",
+      "index": 68,
+      "roman": "XLVI",
+      "filename": "46.jpg",
+      "folder": "2025",
+      "title": "LAMINA XLVI",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2025_46.jpg",
+      "src": "MEDIA/zoom/2025_46.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_46.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Tra l'ombra della laguna e il firmamento, il collage è un ponte tra due mondi.",
+      "notes": "Lamina XLVI — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-047",
+      "index": 69,
+      "roman": "XLVII",
+      "filename": "47.jpg",
+      "folder": "2025",
+      "title": "LAMINA XLVII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "CITRINITAS",
+      "thumb": "MEDIA/thumbs/2025_47.jpg",
+      "src": "MEDIA/zoom/2025_47.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_47.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "L'arco teso nel cosmo non cerca un bersaglio, ma un centro immobile.",
+      "notes": "Lamina XLVII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-048",
+      "index": 70,
+      "roman": "XLVIII",
+      "filename": "48.jpg",
+      "folder": "2025",
+      "title": "LAMINA XLVIII",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "RUBEDO",
+      "thumb": "MEDIA/thumbs/2025_48.jpg",
+      "src": "MEDIA/zoom/2025_48.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_48.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Sotto la carta antica scorre un circuito di luce: ogni taglio è un'incisione rituale.",
+      "notes": "Lamina XLVIII — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-049",
+      "index": 71,
+      "roman": "XLIX",
+      "filename": "49.jpg",
+      "folder": "2025",
+      "title": "LAMINA XLIX",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "NIGREDO",
+      "thumb": "MEDIA/thumbs/2025_49.jpg",
+      "src": "MEDIA/zoom/2025_49.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_49.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Ciò che è in basso è come ciò che è in alto, per compiere i miracoli della Cosa Una.",
+      "notes": "Lamina XLIX — Archivio 2025 di Nicola Vianello."
+    },
+    {
+      "id": "gri-050",
+      "index": 72,
+      "roman": "L",
+      "filename": "50.jpg",
+      "folder": "2025",
+      "title": "LAMINA L",
+      "era": "grimorio",
+      "year": 2025,
+      "stage": "ALBEDO",
+      "thumb": "MEDIA/thumbs/2025_50.jpg",
+      "src": "MEDIA/zoom/2025_50.jpg",
+      "zoomLayers": [
+        {
+          "level": 1,
+          "label": "I · MACROCOSMOS",
+          "subtitle": "Tavola Integrale",
+          "src": "MEDIA/zoom/2025_50.jpg"
+        }
+      ],
+      "video": null,
+      "formula": "GRIMORIO VENEZIANO · COLLAGE QUADRATO 1:1",
+      "oracle": "Nella materia oscura dorme la scintilla d'oro; l'occhio che osserva separa il sottile dallo spesso.",
+      "notes": "Lamina L — Archivio 2025 di Nicola Vianello."
+    }
+  ]
+};

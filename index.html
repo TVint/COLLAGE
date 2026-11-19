@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="it" data-realm="celestiale" data-view="map">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#060914" />
+  <title>NICOLA VIANELLO — CODEX HERMETICUS // COLLAGE ESOTERICI</title>
+  <meta name="description" content="Portale Ermetico di Nicola Vianello — Archivio di Collage Esoterici, Grimorio Veneziano (2025) e Mappa Celestiale (2026) con animazioni viventi." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="is-locked">
+
+  <!-- Ambient Starfield (Celestial Realm) & Venetian Paper Grain -->
+  <canvas id="celestial-bg" class="celestial-bg" aria-hidden="true"></canvas>
+  <div class="venetian-grain" aria-hidden="true"></div>
+
+  <!-- =========================================================================
+       LA SOGLIA ERMETICA (DEFAULT: SEQUENZA MUSICALE · CAMBIABILE DA ADMIN)
+  ========================================================================== -->
+  <section id="hermetic-gate" class="hermetic-gate" role="dialog" aria-modal="true" aria-label="Soglia Ermetica">
+    <div class="gate-frame">
+      <header class="gate-header">
+        <div class="gate-kicker">CORPUS HERMETICUM // NICOLA VIANELLO</div>
+        <h1 class="gate-title" id="gate-title">LA FREQUENZA ERMETICA</h1>
+        <p class="gate-subtitle" id="gate-subtitle">«Ascolta la vibrazione delle sfere e ripeti l'accordo per schiudere il portale.»</p>
+      </header>
+
+      <!-- Selettore delle 4 Chiavi (visibile solo se in Admin è attiva la modalità "all") -->
+      <nav class="gate-tabs" id="gate-tabs" role="tablist" aria-label="Selettore Chiave Ermetica" style="display:none;">
+        <button type="button" class="gate-tab" data-ritual="sound" role="tab">I · FREQUENZA</button>
+        <button type="button" class="gate-tab" data-ritual="astrolabe" role="tab">II · ASTROLABIO</button>
+        <button type="button" class="gate-tab" data-ritual="mirror" role="tab">III · SPECULUM</button>
+        <button type="button" class="gate-tab" data-ritual="sigil" role="tab">IV · SIGILLO</button>
+      </nav>
+
+      <!-- RITUALE PRINCIPALE: STRUMENTO ARMONICO CIMATICO (FREQUENZA ERMETICA) -->
+      <div class="ritual-panel is-active" id="ritual-sound" role="tabpanel">
+        <div class="resonator-stage" id="resonator-stage">
+          <canvas id="cymatics-canvas" class="cymatics-canvas" width="360" height="360" aria-hidden="true"></canvas>
+
+          <!-- 4 Campane Planetarie sui 4 Punti Cardinali -->
+          <button type="button" class="bell-node bell-node--n" data-bell="0" aria-label="Sol 432 Hz">
+            <span class="bell-glyph">☉</span>
+            <span class="bell-name">SOL</span>
+            <span class="bell-hz">432 Hz</span>
+          </button>
+
+          <button type="button" class="bell-node bell-node--e" data-bell="2" aria-label="Mercurius 639 Hz">
+            <span class="bell-glyph">☿</span>
+            <span class="bell-name">MERCURIUS</span>
+            <span class="bell-hz">639 Hz</span>
+          </button>
+
+          <button type="button" class="bell-node bell-node--s" data-bell="1" aria-label="Luna 528 Hz">
+            <span class="bell-glyph">☽</span>
+            <span class="bell-name">LUNA</span>
+            <span class="bell-hz">528 Hz</span>
+          </button>
+
+          <button type="button" class="bell-node bell-node--w" data-bell="3" aria-label="Venus 741 Hz">
+            <span class="bell-glyph">♀</span>
+            <span class="bell-name">VENUS</span>
+            <span class="bell-hz">741 Hz</span>
+          </button>
+
+          <!-- Sigillo Centrale: Evoca la Sequenza -->
+          <button type="button" class="resonator-core" id="sound-play-seq" title="Ascolta la sequenza armonica">
+            <span class="resonator-core__mono">NV</span>
+            <span class="resonator-core__cta">♪ EVOCA</span>
+          </button>
+        </div>
+
+        <!-- Rune di Avanzamento Sequenza -->
+        <div class="sound-progress" id="sound-progress" aria-live="polite"></div>
+
+        <p class="ritual-hint" id="sound-status">Tocca il sigillo centrale <strong>NV · EVOCA</strong> per ascoltare l'accordo segreto, poi ripetilo sui 4 astri.</p>
+      </div>
+
+      <!-- RITUALE II: ASTROLABIO DI ERMETE (Attivabile da Admin) -->
+      <div class="ritual-panel" id="ritual-astrolabe" role="tabpanel">
+        <div class="astrolabe-stage">
+          <div class="astrolabe-zenith" aria-hidden="true">▲ ZENITH</div>
+          <svg id="astrolabe-svg" class="astrolabe-svg" viewBox="0 0 320 320" aria-label="Astrolabio rotante a tre anelli">
+            <line x1="160" y1="8" x2="160" y2="34" stroke="rgba(230,198,119,0.7)" stroke-width="1.5" stroke-dasharray="3 3" />
+            <g class="astro-ring" id="ring-outer" data-ring="0" style="transform-origin: 160px 160px;">
+              <circle cx="160" cy="160" r="134" fill="none" stroke="rgba(230,198,119,0.55)" stroke-width="2" />
+              <circle cx="160" cy="160" r="120" fill="none" stroke="rgba(230,198,119,0.22)" stroke-width="1" stroke-dasharray="4 6" />
+              <circle cx="160" cy="26" r="7" fill="#E6C677" />
+              <text x="160" y="30" text-anchor="middle" fill="#060914" font-size="9" font-weight="700">☉</text>
+            </g>
+            <g class="astro-ring" id="ring-mid" data-ring="1" style="transform-origin: 160px 160px;">
+              <circle cx="160" cy="160" r="96" fill="none" stroke="rgba(230,198,119,0.65)" stroke-width="2" />
+              <circle cx="160" cy="160" r="82" fill="none" stroke="rgba(230,198,119,0.22)" stroke-width="1" />
+              <circle cx="160" cy="64" r="7" fill="#E6C677" />
+              <text x="160" y="68" text-anchor="middle" fill="#060914" font-size="9" font-weight="700">☽</text>
+            </g>
+            <g class="astro-ring" id="ring-inner" data-ring="2" style="transform-origin: 160px 160px;">
+              <circle cx="160" cy="160" r="58" fill="none" stroke="rgba(230,198,119,0.85)" stroke-width="2" />
+              <polygon points="160,108 205,186 115,186" fill="none" stroke="rgba(230,198,119,0.4)" stroke-width="1" />
+              <circle cx="160" cy="102" r="7" fill="#E6C677" />
+              <text x="160" y="106" text-anchor="middle" fill="#060914" font-size="9" font-weight="700">☿</text>
+            </g>
+            <circle cx="160" cy="160" r="24" fill="#060914" stroke="#E6C677" stroke-width="1.5" />
+            <text x="160" y="165" text-anchor="middle" fill="#E6C677" font-family="Cinzel, serif" font-size="13" font-weight="700">NV</text>
+          </svg>
+        </div>
+        <div class="astro-controls">
+          <button type="button" class="ritual-btn" data-rotate-ring="0">RUOTA SOLE ☉</button>
+          <button type="button" class="ritual-btn" data-rotate-ring="1">RUOTA LUNA ☽</button>
+          <button type="button" class="ritual-btn" data-rotate-ring="2">RUOTA MERCURIO ☿</button>
+        </div>
+        <p class="ritual-hint" id="astro-status">Allinea i tre sigilli (☉ ☽ ☿) sullo Zenith in alto (12:00).</p>
+      </div>
+
+      <!-- RITUALE III: TAVOLA SMERALDINA / SPECULUM (Attivabile da Admin) -->
+      <div class="ritual-panel" id="ritual-mirror" role="tabpanel">
+        <div class="mirror-stage">
+          <div class="mirror-half mirror-half--top">
+            <span class="mirror-tag">IN ALTO</span>
+            <svg viewBox="0 0 200 100" class="mirror-sigil">
+              <polygon points="100,12 145,86 55,86" fill="none" stroke="#E6C677" stroke-width="2" />
+              <circle cx="100" cy="58" r="18" fill="none" stroke="#E6C677" stroke-width="1.5" />
+              <circle cx="100" cy="58" r="4" fill="#E6C677" />
+            </svg>
+          </div>
+          <div class="mirror-horizon"></div>
+          <div class="mirror-half mirror-half--bottom">
+            <span class="mirror-tag">IN BASSO</span>
+            <svg viewBox="0 0 200 100" class="mirror-sigil" id="mirror-lower-svg">
+              <polygon points="100,88 145,14 55,14" fill="none" stroke="#E6C677" stroke-width="2" />
+              <circle cx="100" cy="42" r="18" fill="none" stroke="#E6C677" stroke-width="1.5" />
+              <circle cx="100" cy="42" r="4" fill="#E6C677" />
+            </svg>
+          </div>
+        </div>
+        <div class="mirror-slider-wrap">
+          <input type="range" id="mirror-slider" min="-100" max="100" value="68" aria-label="Allinea il riflesso inferiore" />
+        </div>
+        <p class="ritual-hint" id="mirror-status">Scorri per allineare perfettamente il sigillo inferiore al suo riflesso celeste.</p>
+      </div>
+
+      <!-- RITUALE IV: SIGILLO TRACCIATO A MANO (Attivabile da Admin) -->
+      <div class="ritual-panel" id="ritual-sigil" role="tabpanel">
+        <div class="sigil-board-wrap">
+          <canvas id="sigil-canvas" width="300" height="260"></canvas>
+        </div>
+        <div class="astro-controls">
+          <button type="button" class="ritual-btn" id="sigil-reset-btn">CANCELLA TRATTO</button>
+        </div>
+        <p class="ritual-hint" id="sigil-status">Traccia un unico segno continuo unendo tutti e 5 i nodi luminosi della costellazione.</p>
+      </div>
+
+      <footer class="gate-footer" id="gate-footer">
+        <button type="button" class="curator-bypass" id="curator-bypass-btn" title="Accesso diretto per curatori e galleristi">
+          ⚷ PASSAGGIO DEL CURATORE
+        </button>
+      </footer>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       HUD FISSO DEL PORTALE
+  ========================================================================== -->
+  <header id="portal-hud" class="portal-hud">
+    <div class="hud-left">
+      <div class="hud-sigil">NV</div>
+      <div class="hud-brand">
+        <strong>CODEX HERMETICUS</strong>
+        <span id="hud-realm-subtitle">MAPPA CELESTIALE // 2026</span>
+      </div>
+    </div>
+
+    <!-- Switch tra i due Mondi (2026 Mappa Celestiale vs 2025 Grimorio Veneziano) -->
+    <nav class="hud-realms" aria-label="Selettore Epoca">
+      <button type="button" class="realm-btn is-active" data-set-realm="celestiale">
+        ✦ CELESTIALE 2026 <span class="count-pill" id="count-celestiale">0</span>
+      </button>
+      <button type="button" class="realm-btn" data-set-realm="grimorio">
+        ❦ GRIMORIO 2025 <span class="count-pill" id="count-grimorio">0</span>
+      </button>
+    </nav>
+
+    <!-- Azioni -->
+    <div class="hud-actions">
+      <button type="button" class="hud-pill" id="toggle-view-btn" title="Alterna tra Mappa Stellare e Grimorio 3D">
+        <span id="toggle-view-label">☷ VISTA GRIMORIO</span>
+      </button>
+      <button type="button" class="hud-pill hud-pill--gold" id="open-oracle-btn" title="Interroga l'Archivio come un Oracolo">
+        ✧ ORACOLO
+      </button>
+      <button type="button" class="hud-pill" id="toggle-audio-btn" aria-pressed="false" title="Attiva/Disattiva Drone Armonico">
+        ♪ OFF
+      </button>
+      <button type="button" class="hud-pill hud-hide-sm" onclick="window.print()" title="Stampa Scheda Grimorio / Talismano">
+        ⎙ STAMPA
+      </button>
+      <a href="admin.html" class="hud-pill hud-hide-sm" title="Apri Scriptorium Admin CMS" style="text-decoration:none;">
+        ⚙ ADMIN
+      </a>
+      <button type="button" class="hud-pill hud-hide-sm" id="relock-gate-btn" title="Torna alla Soglia Ermetica">
+        ⚷
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       CORPO DEL PORTALE
+  ========================================================================== -->
+  <main id="portal-main" class="portal-main">
+
+    <!-- VISTA 1: MAPPA CELESTIALE / TAVOLO ALCHEMICO INFINITO (PAN & ZOOM) -->
+    <section id="celestial-map-view" class="map-view is-active" aria-label="Mappa Stellare Interattiva">
+      <div id="map-viewport" class="map-viewport">
+        <div id="map-world" class="map-world">
+          <svg id="constellation-svg" class="constellation-svg" aria-hidden="true"></svg>
+          <div id="map-nodes" class="map-nodes"></div>
+        </div>
+      </div>
+
+      <div class="map-controls">
+        <button type="button" class="map-ctrl-btn" id="map-zoom-in" title="Zoom Avanti">+</button>
+        <button type="button" class="map-ctrl-btn" id="map-zoom-out" title="Zoom Indietro">−</button>
+        <button type="button" class="map-ctrl-btn" id="map-center" title="Centra Costellazione">⌖</button>
+      </div>
+      <div class="map-hint">TRASCINA LA COSTELLAZIONE · ROTELLA O PIZZICA PER ZOOMARE · LE STELLE DORATE CON ▶ PRENDONO VITA A TUTTO SCHERMO</div>
+    </section>
+
+    <!-- VISTA 2: GRIMORIO VENEZIANO / CODICE SFOGLIA-TAVOLE 3D -->
+    <section id="grimoire-view" class="grimoire-view" aria-label="Grimorio Sfoglia-Tavole 3D">
+      <div class="grimoire-header">
+        <div class="grimoire-kicker" id="grimoire-kicker">OPUS ALCHEMICUM // TAVOLE QUADRATE 1:1</div>
+        <h2 class="grimoire-title" id="grimoire-title">CODICE DELLE LAMINE</h2>
+        <p class="grimoire-intro" id="grimoire-intro">
+          Ogni opera è una Lamina quadrata. Tocca <strong>↻ RETRO</strong> per rivelare la formula alchemica, oppure apri la lamina per esplorarne i <strong>3 strati di profondità</strong> e le animazioni viventi.
+        </p>
+
+        <div class="stage-filters" id="stage-filters" role="tablist">
+          <button type="button" class="stage-chip is-active" data-stage="ALL">TUTTE</button>
+          <button type="button" class="stage-chip" data-stage="NIGREDO">I · NIGREDO</button>
+          <button type="button" class="stage-chip" data-stage="ALBEDO">II · ALBEDO</button>
+          <button type="button" class="stage-chip" data-stage="CITRINITAS">III · CITRINITAS</button>
+          <button type="button" class="stage-chip" data-stage="RUBEDO">IV · RUBEDO</button>
+        </div>
+      </div>
+
+      <div id="grimoire-grid" class="grimoire-grid"></div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       MODALE ORACOLO ("INTERROGA L'ARCHIVIO")
+  ========================================================================== -->
+  <div id="oracle-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="L'Oracolo Ermetico">
+    <div class="modal-backdrop" data-close-modal="oracle"></div>
+    <div class="oracle-shell">
+      <header class="oracle-header">
+        <div>
+          <span class="oracle-kicker">DIVINAZIONE VISIVA // CODEX HERMETICUS</span>
+          <h2 class="oracle-title">INTERROGA L'ORACOLO</h2>
+        </div>
+        <button type="button" class="modal-close-btn" data-close-modal="oracle">CHIUDI ✕</button>
+      </header>
+
+      <div class="oracle-actions">
+        <button type="button" class="ritual-btn" id="oracle-draw-one">✧ PESCA UN ARCANO</button>
+        <button type="button" class="ritual-btn" id="oracle-draw-three">✦ TRIADE (PASSATO · PRESENTE · FUTURO)</button>
+      </div>
+
+      <div id="oracle-spread" class="oracle-spread">
+        <p class="oracle-placeholder">Formula una domanda in silenzio e scegli il tipo di estrazione.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       LIGHTBOX ISPETTORE CON OCULUS TRISMEGISTI (3 LIVELLI DI ZOOM) + RISVEGLIO
+  ========================================================================== -->
+  <div id="artwork-lightbox" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Ispezione Lamina">
+    <div class="modal-backdrop" data-close-modal="lightbox"></div>
+    <div class="lightbox-shell">
+      <header class="lb-header">
+        <div class="lb-meta">
+          <span class="lb-roman" id="lb-roman">I</span>
+          <strong class="lb-title" id="lb-title">ASTRO QUEEN</strong>
+          <span class="lb-stage" id="lb-stage">NIGREDO</span>
+        </div>
+        <div class="lb-controls">
+          <button type="button" class="hud-pill" id="lb-prev" title="Lamina Precedente">←</button>
+          <button type="button" class="hud-pill" id="lb-next" title="Lamina Successiva">→</button>
+          <button type="button" class="modal-close-btn" data-close-modal="lightbox">CHIUDI ✕</button>
+        </div>
+      </header>
+
+      <div class="lb-body">
+        <div class="lb-visual-col">
+          <!-- Optical Stage with Double-Buffer Iris Crossfade -->
+          <div class="lb-media-frame" id="lb-media-frame" title="Clicca per immergerti nello strato ottico successivo">
+            <img id="lb-img-a" class="lb-layer-img is-visible" src="" alt="" />
+            <img id="lb-img-b" class="lb-layer-img" src="" alt="" />
+            <div class="lb-iris-ring" id="lb-iris-ring" aria-hidden="true"></div>
+            <div class="lb-depth-badge" id="lb-depth-badge">I · MACROCOSMOS</div>
+          </div>
+
+          <!-- OCULUS TRISMEGISTI: Selettore dei 3 Livelli di Zoom (Macro/Meso/Micro) -->
+          <div class="oculus-bar" id="oculus-bar" style="display:none;" aria-label="Livelli di profondità ermetica">
+            <!-- Generato dinamicamente per le opere a 3 strati -->
+          </div>
+        </div>
+
+        <aside class="lb-info">
+          <!-- Bottone Rituale "Risveglia a Tutto Schermo" per le opere con video .mp4 -->
+          <button type="button" class="awaken-btn" id="lb-awaken-btn" style="display:none;">
+            <span class="awaken-btn__pulse"></span>
+            <span class="awaken-btn__text">✦ RISVEGLIA LA LAMINA · TUTTO SCHERMO</span>
+          </button>
+
+          <div class="lb-info-block">
+            <span class="lb-label">EPOCA &amp; ANNO</span>
+            <p id="lb-era-year">MAPPA CELESTIALE · 2026</p>
+          </div>
+          <div class="lb-info-block">
+            <span class="lb-label">FORMULA</span>
+            <p id="lb-formula"></p>
+          </div>
+          <div class="lb-info-block">
+            <span class="lb-label">FRAMMENTO ERMETICO</span>
+            <blockquote id="lb-oracle"></blockquote>
+          </div>
+          <div class="lb-info-block">
+            <span class="lb-label">NOTE D'ARCHIVIO</span>
+            <p id="lb-notes"></p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       LIVING FULLSCREEN STAGE ("LA GRAFICA ESCE DALLA CARTA E PRENDE VITA")
+  ========================================================================== -->
+  <div id="living-stage" class="living-stage" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Risveglio Animazione a Tutto Schermo">
+    <canvas id="living-particles" class="living-particles" aria-hidden="true"></canvas>
+
+    <!-- Fase 1: La carta quadrata che si stacca e si dissolve -->
+    <div id="living-paper-ghost" class="living-paper-ghost" aria-hidden="true">
+      <img id="living-ghost-img" src="" alt="" />
+    </div>
+
+    <!-- Fase 2: L'opera viva a tutto schermo -->
+    <video id="living-video" class="living-video" loop playsinline preload="auto"></video>
+
+    <!-- HUD Flottante Minimal (si dissolve automaticamente dopo 2.5s) -->
+    <div id="living-hud" class="living-hud">
+      <div class="living-hud__title">
+        <span id="living-roman">LAMINA I</span>
+        <strong id="living-title">ASTRO QUEEN</strong>
+      </div>
+      <div class="living-hud__controls">
+        <button type="button" class="living-btn" id="living-play-btn">⏸ PAUSA</button>
+        <button type="button" class="living-btn" id="living-mute-btn">♪ AUDIO ON</button>
+        <button type="button" class="living-btn" id="living-fit-btn">⛶ RIEMPI SCHERMO</button>
+        <button type="button" class="living-btn living-btn--close" id="living-close-btn">✕ RITORNA ALLA CARTA</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="artworks-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
