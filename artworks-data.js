@@ -1,7 +1,7 @@
 window.ARTWORKS_MANIFEST = {
   "generatedAt": "2026-11-19T11:09:54.745284",
   "config": {
-    "activeGate": "astrolabe",
+    "activeGate": "sound",
     "soundSequence": [
       0,
       2,
@@ -2114,5 +2114,5 @@ window.ARTWORKS_MANIFEST = {
       "notes": "Lamina L — Archivio 2025 di Nicola Vianello."
     }
   ],
-  "updatedAt": "2026-11-19T11:32:39.567075"
+  "updatedAt": "2026-11-19T11:32:52.432666"
 };
