@@ -1220,6 +1220,11 @@ html[data-realm="grimorio"] .hud-pill--premium {
 .living-btn:hover { background: #E6C677; color: #060914; }
 .living-btn--close { border-color: #D64545; color: #FF9494; }
 .living-btn--close:hover { background: #D64545; color: #FFF; }
+.lbl-mobile { display: none; }
+@media (max-width: 900px) {
+  .lbl-desktop { display: none; }
+  .lbl-mobile { display: inline; }
+}
 
 /* ==========================================================================
    7. LIBRO ERMETICO / CODEX FOLIO (WEB APP MOBILE & TABLET)
@@ -1593,6 +1598,7 @@ html[data-realm="grimorio"] .codex-book-shell {
   #toggle-view-btn,
   #open-oracle-btn,
   #living-fuse-btn,
+  #living-fit-btn,
   .living-video-bg {
     display: none !important;
   }
@@ -1612,6 +1618,70 @@ html[data-realm="grimorio"] .codex-book-shell {
     bottom: calc(82px + env(safe-area-inset-bottom, 0px));
   }
   .lb-body { grid-template-columns: 1fr; }
+
+  /* Smart Floating Pill HUD for Living Video on Mobile */
+  .living-hud {
+    left: 12px;
+    right: 12px;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    padding: 12px 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(230, 198, 119, 0.32);
+    background: rgba(6, 9, 20, 0.78);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.72);
+  }
+
+  .living-hud__title {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .living-hud__title strong {
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .living-track-name {
+    display: none;
+  }
+
+  .living-hud__controls {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .living-btn {
+    padding: 10px 6px;
+    border-radius: 10px;
+    font-size: 9.5px;
+    text-align: center;
+    white-space: nowrap;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Single-column full-breath Arcana view on mobile (no cramped 2-column grid) */
+  .grimoire-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: 440px;
+    margin: 0 auto;
+  }
 }
 
 /* Small Smartphone Screens (e.g. POCO / 360px-430px) */
@@ -1621,8 +1691,7 @@ html[data-realm="grimorio"] .codex-book-shell {
   .hud-brand strong { font-size: 10.5px; letter-spacing: 0.1em; }
   .hud-sigil { width: 28px; height: 28px; font-size: 10px; }
   .hud-pill { padding: 6px 8px; font-size: 9px; }
-  .grimoire-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .arcana-face { padding: 8px; }
+  .arcana-face { padding: 12px; }
   .oculus-bar { gap: 4px; }
   .oculus-btn__sub { display: none; }
 
@@ -1715,17 +1784,6 @@ html[data-realm="grimorio"] .codex-book-shell {
   .resonator-core {
     width: 74px;
     height: 74px;
-  }
-
-  /* Compact Living HUD on small phones */
-  .living-hud {
-    padding: 12px 12px calc(14px + env(safe-area-inset-bottom, 0px));
-    gap: 8px;
-  }
-  .living-hud__title strong { font-size: 1rem; }
-  .living-btn {
-    padding: 7px 9px;
-    font-size: 9px;
   }
 }
 
