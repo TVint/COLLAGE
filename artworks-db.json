@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-19T09:15:37.097335",
+  "generatedAt": "2026-11-19T11:09:54.745284",
   "config": {
-    "activeGate": "sigil",
+    "activeGate": "sound",
     "soundSequence": [
       0,
       2,
@@ -2113,6 +2113,5 @@
       "oracle": "Nella materia oscura dorme la scintilla d'oro; l'occhio che osserva separa il sottile dallo spesso.",
       "notes": "Lamina L — Archivio 2025 di Nicola Vianello."
     }
-  ],
-  "updatedAt": "2026-11-19T09:16:01.952227"
+  ]
 }

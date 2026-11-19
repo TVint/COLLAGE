@@ -12,6 +12,7 @@ import re
 import sys
 import json
 import shutil
+import subprocess
 from datetime import datetime
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 
@@ -141,6 +142,19 @@ class ScriptoriumHandler(SimpleHTTPRequestHandler):
                     return self.send_json({"ok": True, "path": rel_path, "message": f"Traccia caricata: {final_name}", "data": saved})
 
                 return self.send_json({"ok": True, "path": rel_path, "message": f"Traccia caricata: {final_name}"})
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)}, status=500)
+
+        if path == "/api/publish":
+            try:
+                subprocess.run(["git", "add", "artworks-db.json", "artworks-data.js", "MEDIA"], cwd=BASE_DIR, check=True)
+                st = subprocess.run(["git", "status", "--porcelain"], cwd=BASE_DIR, text=True, capture_output=True)
+                if st.stdout.strip():
+                    subprocess.run(["git", "commit", "-m", "Aggiornamento Scriptorium CMS"], cwd=BASE_DIR, check=True)
+                push = subprocess.run(["git", "push", "origin", "main"], cwd=BASE_DIR, text=True, capture_output=True)
+                if push.returncode != 0:
+                    return self.send_json({"ok": False, "error": push.stderr.strip() or "git push failed"}, status=500)
+                return self.send_json({"ok": True, "message": "Pubblicato su GitHub! La Web App mobile si aggiornerà in ~1 minuto."})
             except Exception as exc:
                 return self.send_json({"ok": False, "error": str(exc)}, status=500)
 

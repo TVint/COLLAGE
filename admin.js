@@ -405,6 +405,18 @@
 
     document.getElementById("btn-save")?.addEventListener("click", saveData);
     document.getElementById("btn-rescan")?.addEventListener("click", rescanFolders);
+    document.getElementById("btn-publish")?.addEventListener("click", async () => {
+      await saveData();
+      showToast("🚀 Pubblicazione su GitHub Pages in corso...");
+      try {
+        const res = await fetch("/api/publish", { method: "POST" });
+        const json = await res.json();
+        if (json.ok) showToast("✦ " + json.message);
+        else showToast("Errore pubblicazione: " + (json.error || "sconosciuto"));
+      } catch (_) {
+        showToast("⚠ Server locale non attivo: avvia Avvia-Admin.command.");
+      }
+    });
 
     loadData();
   }

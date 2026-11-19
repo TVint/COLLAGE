@@ -1468,21 +1468,30 @@
      10. BOOTSTRAP (LIVE LOCAL CMS SYNC + CREDITS MODAL)
   ======================================================================== */
   async function init() {
-    // Always fetch live manifest from local server.py when running locally so Admin edits appear immediately!
-    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+    // Always fetch fresh manifest (works on localhost, LAN Wi-Fi IP, AND GitHub Pages Mobile Web App!)
+    const ts = Date.now();
+    let fresh = null;
+    try {
+      const apiRes = await fetch(`/api/manifest?t=${ts}`, { cache: "no-store" });
+      if (apiRes.ok) fresh = await apiRes.json();
+    } catch (_) {}
+
+    if (!fresh) {
       try {
-        const res = await fetch("/api/manifest?t=" + Date.now(), { cache: "no-store" });
-        if (res.ok) {
-          MANIFEST = await res.json();
-          CONFIG = {
-            activeGate: "sound",
-            soundSequence: [0, 2, 1, 3],
-            showCuratorBypass: true,
-            ...(MANIFEST.config || {}),
-          };
-          ARTWORKS = MANIFEST.artworks || [];
-        }
+        const jsonRes = await fetch(`./artworks-db.json?t=${ts}`, { cache: "no-store" });
+        if (jsonRes.ok) fresh = await jsonRes.json();
       } catch (_) {}
+    }
+
+    if (fresh && Array.isArray(fresh.artworks)) {
+      MANIFEST = fresh;
+      CONFIG = {
+        activeGate: "sound",
+        soundSequence: [0, 2, 1, 3],
+        showCuratorBypass: true,
+        ...(MANIFEST.config || {}),
+      };
+      ARTWORKS = MANIFEST.artworks || [];
     }
 
     const cCel = document.getElementById("count-celestiale");
