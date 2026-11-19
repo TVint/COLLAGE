@@ -8,18 +8,18 @@
 (() => {
   "use strict";
 
-  const MANIFEST = window.ARTWORKS_MANIFEST || {
+  let MANIFEST = window.ARTWORKS_MANIFEST || {
     config: { activeGate: "sound", soundSequence: [0, 2, 1, 3], showCuratorBypass: true },
     counts: { celestiale: 0, grimorio: 0, videos: 0 },
     artworks: [],
   };
-  const CONFIG = {
+  let CONFIG = {
     activeGate: "sound",
     soundSequence: [0, 2, 1, 3],
     showCuratorBypass: true,
     ...(MANIFEST.config || {}),
   };
-  const ARTWORKS = MANIFEST.artworks || [];
+  let ARTWORKS = MANIFEST.artworks || [];
 
   const GATE_TITLES = {
     sound: ["LA FREQUENZA ERMETICA", "«Ascolta la vibrazione delle sfere e ripeti l'accordo per schiudere il portale.»"],
@@ -1093,9 +1093,11 @@
         : "♪ NESSUNA TRACCIA AUDIO";
     }
 
-    // Reset state & start paper breakout ritual with Cosmic Fusion active by default
-    stage.classList.remove("is-playing", "is-awakening", "hud-hidden");
-    stage.classList.add("is-active", "is-fused");
+    // Reset state & start paper breakout ritual (Cosmic Fusion only on Desktop > 900px; clean direct video on Mobile)
+    const isDesktop = window.innerWidth > 900;
+    stage.classList.remove("is-playing", "is-awakening", "hud-hidden", "is-fused");
+    stage.classList.add("is-active");
+    if (isDesktop) stage.classList.add("is-fused");
     stage.setAttribute("aria-hidden", "false");
     void stage.offsetWidth;
     stage.classList.add("is-awakening");
@@ -1108,7 +1110,7 @@
     vid.src = art.video;
     vid.currentTime = 0;
 
-    if (vidBg) {
+    if (vidBg && isDesktop) {
       vidBg.src = art.video;
       vidBg.currentTime = 0;
     }
@@ -1121,14 +1123,14 @@
 
     if (playBtn) playBtn.textContent = "⏸ PAUSA";
     if (muteBtn) muteBtn.textContent = "♪ AUDIO ON";
-    if (fuseBtn) fuseBtn.textContent = "✦ FUSIONE ATTIVA";
+    if (fuseBtn) fuseBtn.textContent = isDesktop ? "✦ FUSIONE ATTIVA" : "▢ BORDI NETTI";
     if (fitBtn) fitBtn.textContent = "⛶ RIEMPI SCHERMO";
 
     // Crossfade into living fullscreen video + ambient-glitch-drone audio
     setTimeout(() => {
       stage.classList.add("is-playing");
       vid.play().catch(() => {});
-      if (vidBg) vidBg.play().catch(() => {});
+      if (vidBg && isDesktop) vidBg.play().catch(() => {});
       if (audioEl && audioSrc) {
         audioEl.play().then(() => {
           fadeAudioIn(audioEl, 0.85);
@@ -1463,9 +1465,26 @@
   }
 
   /* ========================================================================
-     10. BOOTSTRAP
+     10. BOOTSTRAP (LIVE LOCAL CMS SYNC + CREDITS MODAL)
   ======================================================================== */
-  function init() {
+  async function init() {
+    // Always fetch live manifest from local server.py when running locally so Admin edits appear immediately!
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+      try {
+        const res = await fetch("/api/manifest?t=" + Date.now(), { cache: "no-store" });
+        if (res.ok) {
+          MANIFEST = await res.json();
+          CONFIG = {
+            activeGate: "sound",
+            soundSequence: [0, 2, 1, 3],
+            showCuratorBypass: true,
+            ...(MANIFEST.config || {}),
+          };
+          ARTWORKS = MANIFEST.artworks || [];
+        }
+      } catch (_) {}
+    }
+
     const cCel = document.getElementById("count-celestiale");
     const cGri = document.getElementById("count-grimorio");
     if (cCel) cCel.textContent = String(MANIFEST.counts?.celestiale || 0);
@@ -1498,6 +1517,12 @@
       m?.classList.add("is-open");
       m?.setAttribute("aria-hidden", "false");
     });
+    document.getElementById("open-credits-btn")?.addEventListener("click", () => {
+      const m = document.getElementById("credits-modal");
+      m?.classList.add("is-open");
+      m?.setAttribute("aria-hidden", "false");
+      playMysticBell(528, 1.0, 0.055);
+    });
     document.getElementById("oracle-draw-one")?.addEventListener("click", () => drawOracle(1));
     document.getElementById("oracle-draw-three")?.addEventListener("click", () => drawOracle(3));
 
@@ -1523,7 +1548,9 @@
 
     document.querySelectorAll("[data-close-modal]").forEach((el) => {
       el.addEventListener("click", () => {
-        closeModal(el.dataset.closeModal === "oracle" ? "oracle-modal" : "artwork-lightbox");
+        const key = el.dataset.closeModal;
+        const map = { oracle: "oracle-modal", credits: "credits-modal", lightbox: "artwork-lightbox" };
+        if (map[key]) closeModal(map[key]);
       });
     });
 
@@ -1534,6 +1561,7 @@
           return;
         }
         closeModal("oracle-modal");
+        closeModal("credits-modal");
         closeModal("artwork-lightbox");
       } else if (document.getElementById("artwork-lightbox")?.classList.contains("is-open")) {
         if (e.key === "ArrowRight") {

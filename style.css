@@ -471,6 +471,107 @@ html[data-realm="grimorio"] .venetian-grain {
 .hud-pill:hover, .hud-pill--gold { border-color: var(--gold); color: var(--gold); }
 .hud-pill--gold:hover { background: var(--gold); color: #060914; }
 
+/* PREMIUM Brain Credits Medallion Button */
+.hud-pill--premium {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #FFF0BE;
+  background: linear-gradient(135deg, rgba(230, 198, 119, 0.24), rgba(143, 107, 41, 0.14));
+  color: #FFF0BE;
+  font-weight: 600;
+  box-shadow: 0 0 16px rgba(230, 198, 119, 0.28), inset 0 0 8px rgba(255, 240, 190, 0.12);
+}
+
+html[data-realm="grimorio"] .hud-pill--premium {
+  border-color: #8F6B29;
+  background: linear-gradient(135deg, rgba(184, 139, 54, 0.22), rgba(143, 107, 41, 0.1));
+  color: #5C4214;
+  box-shadow: 0 0 12px rgba(143, 107, 41, 0.2);
+}
+
+.hud-pill--premium:hover {
+  background: #E6C677;
+  color: #060914 !important;
+  box-shadow: 0 0 26px rgba(230, 198, 119, 0.65);
+}
+
+.brain-icon {
+  flex-shrink: 0;
+}
+
+/* Credits Modal (Ashed Thought) */
+.credits-shell {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 520px;
+  border: 1.5px solid #E6C677;
+  outline: 1px solid rgba(230, 198, 119, 0.25);
+  outline-offset: -8px;
+  background: radial-gradient(circle at 50% 22%, #131C3A 0%, #070A16 78%);
+  color: #F2ECE0;
+  padding: 40px 28px 32px;
+  text-align: center;
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.88), 0 0 45px rgba(230, 198, 119, 0.16);
+}
+
+.credits-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+.credits-emblem {
+  width: 82px;
+  height: 82px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  border: 1.5px solid #E6C677;
+  background: radial-gradient(circle, rgba(230, 198, 119, 0.22) 0%, rgba(6, 9, 20, 0.9) 74%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 34px rgba(230, 198, 119, 0.4);
+  animation: coreBreath 3.2s ease-in-out infinite;
+}
+
+.credits-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 2.3rem);
+  letter-spacing: 0.18em;
+  color: #FFF0BE;
+  margin-top: 6px;
+}
+
+.credits-divider {
+  color: #E6C677;
+  margin: 14px 0;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+}
+
+.credits-text {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  line-height: 1.6;
+  color: rgba(242, 236, 224, 0.88);
+  margin-bottom: 22px;
+}
+
+.credits-text strong {
+  color: #FFF0BE;
+}
+
+.credits-footer {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  color: rgba(230, 198, 119, 0.6);
+  padding-top: 14px;
+  border-top: 1px solid rgba(230, 198, 119, 0.2);
+}
+
 /* ==========================================================================
    3. VISTA MAPPA CELESTIALE INFINITA (PAN & ZOOM)
    ========================================================================== */
@@ -1485,22 +1586,24 @@ html[data-realm="grimorio"] .codex-book-shell {
    ========================================================================== */
 @media (max-width: 900px) {
   .portal-hud {
-    padding: calc(6px + env(safe-area-inset-top, 0px)) 14px 6px;
-    min-height: 52px;
+    padding: calc(6px + env(safe-area-inset-top, 0px)) 12px 6px;
+    min-height: 50px;
   }
   .hud-realms,
   #toggle-view-btn,
-  #open-oracle-btn {
+  #open-oracle-btn,
+  #living-fuse-btn,
+  .living-video-bg {
     display: none !important;
   }
   .mobile-book-dock {
     display: grid;
   }
   .portal-main {
-    padding-top: calc(52px + env(safe-area-inset-top, 0px));
+    padding-top: calc(50px + env(safe-area-inset-top, 0px));
   }
   .map-view {
-    height: calc(100dvh - 52px - 68px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    height: calc(100dvh - 50px - 66px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
   }
   .grimoire-view {
     padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
@@ -1511,15 +1614,128 @@ html[data-realm="grimorio"] .codex-book-shell {
   .lb-body { grid-template-columns: 1fr; }
 }
 
+/* Small Smartphone Screens (e.g. POCO / 360px-430px) */
 @media (max-width: 600px) {
   .gate-tabs { grid-template-columns: repeat(2, 1fr); }
   .hud-hide-sm, .hud-brand span, .map-hint { display: none; }
-  .grimoire-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .hud-brand strong { font-size: 10.5px; letter-spacing: 0.1em; }
+  .hud-sigil { width: 28px; height: 28px; font-size: 10px; }
+  .hud-pill { padding: 6px 8px; font-size: 9px; }
+  .grimoire-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .arcana-face { padding: 8px; }
-  .bell-node { width: 72px; height: 72px; }
-  .resonator-core { width: 82px; height: 82px; }
   .oculus-bar { gap: 4px; }
   .oculus-btn__sub { display: none; }
+
+  /* Hermetic Book perfectly proportioned for small POCO smartphone viewport */
+  .codex-book-view {
+    min-height: calc(100dvh - 50px - env(safe-area-inset-top, 0px));
+    padding: 8px 10px calc(74px + env(safe-area-inset-bottom, 0px));
+    align-items: flex-start;
+  }
+
+  .codex-book-shell {
+    min-height: auto;
+    height: auto;
+    padding: 12px 12px 10px 18px;
+    gap: 8px;
+    box-shadow:
+      inset 14px 0 22px rgba(0, 0, 0, 0.38),
+      5px 0 0 -1px var(--bg-surface),
+      7px 0 0 -1px var(--border),
+      0 14px 32px rgba(0, 0, 0, 0.48);
+  }
+
+  .folio-header {
+    font-size: 8.5px;
+    padding-bottom: 6px;
+  }
+
+  .folio-plate-wrap {
+    width: min(100%, 42dvh);
+    margin: 0 auto;
+  }
+
+  .folio-title {
+    font-size: 1.02rem;
+    letter-spacing: 0.08em;
+  }
+
+  .folio-oculus {
+    gap: 4px;
+  }
+
+  .folio-oculus-btn {
+    padding: 6px 2px;
+    font-size: 8.5px;
+  }
+
+  .folio-actions {
+    gap: 6px;
+  }
+
+  .folio-btn {
+    padding: 8px 6px;
+    font-size: 8.8px;
+    min-height: 36px;
+  }
+
+  .folio-turn-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  .folio-swipe-hint {
+    font-size: 7.5px;
+  }
+
+  /* Compact Hermetic Gate on small phones */
+  .gate-frame {
+    padding: 16px 14px;
+    outline-offset: 4px;
+  }
+  .gate-title {
+    font-size: 1.35rem;
+  }
+  .gate-subtitle {
+    font-size: 0.92rem;
+    margin-bottom: 12px;
+  }
+  .resonator-stage {
+    width: min(280px, 76vw);
+    height: min(280px, 76vw);
+  }
+  .bell-node {
+    width: 64px;
+    height: 64px;
+  }
+  .bell-glyph { font-size: 1.2rem; }
+  .bell-name { font-size: 7px; }
+  .bell-hz { font-size: 7px; }
+  .resonator-core {
+    width: 74px;
+    height: 74px;
+  }
+
+  /* Compact Living HUD on small phones */
+  .living-hud {
+    padding: 12px 12px calc(14px + env(safe-area-inset-bottom, 0px));
+    gap: 8px;
+  }
+  .living-hud__title strong { font-size: 1rem; }
+  .living-btn {
+    padding: 7px 9px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 390px) {
+  .premium-label {
+    display: none;
+  }
+  .folio-swipe-hint {
+    display: none;
+  }
 }
 
 /* ==========================================================================

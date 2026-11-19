@@ -55,6 +55,14 @@ class ScriptoriumHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=BASE_DIR, **kwargs)
 
+    def end_headers(self):
+        # Prevent browser caching of manifest/code files when editing locally in CMS
+        req_path = self.path.split("?")[0].lower()
+        if req_path.endswith((".js", ".json", ".html", ".css", "/")):
+            self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+            self.send_header("Pragma", "no-cache")
+        super().end_headers()
+
     def send_json(self, obj, status=200):
         raw = json.dumps(obj, ensure_ascii=False).encode("utf-8")
         self.send_response(status)

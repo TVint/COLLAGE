@@ -117,6 +117,8 @@
       const json = await res.json();
       if (json.ok) {
         db = json.data;
+        // Reset session unlock so gate changes are visible immediately when opening the portal
+        sessionStorage.removeItem("codex_unlocked");
         updateStatus();
         showToast("✦ Codice Ermetico salvato direttamente su disco!");
       } else {
