@@ -925,14 +925,15 @@ html[data-realm="grimorio"] .venetian-grain {
   position: fixed;
   inset: 0;
   z-index: 6000;
-  background: #020308;
+  background: radial-gradient(circle at 50% 50%, #090E20 0%, #020308 82%);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.55s ease, visibility 0.55s;
+  overflow: hidden;
+  transition: opacity 0.6s ease, visibility 0.6s;
 }
 
 .living-stage.is-active {
@@ -941,19 +942,37 @@ html[data-realm="grimorio"] .venetian-grain {
   pointer-events: auto;
 }
 
+/* Synchronized Ambient Blurred Backdrop Video that fuses artwork with entire screen */
+.living-video-bg {
+  position: absolute;
+  inset: -12%;
+  width: 124%;
+  height: 124%;
+  object-fit: cover;
+  filter: blur(48px) saturate(1.45) brightness(0.58);
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 1.2s ease;
+}
+
+.living-stage.is-fused.is-playing .living-video-bg {
+  opacity: 0.85;
+}
+
 .living-particles {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 3;
 }
 
 /* Ghost Paper Card that lifts off & dissolves as the artwork awakens */
 .living-paper-ghost {
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   width: min(56vmin, 420px);
   aspect-ratio: 1 / 1;
   border: 2px solid #E6C677;
@@ -987,7 +1006,20 @@ html[data-realm="grimorio"] .venetian-grain {
   object-fit: contain;
   opacity: 0;
   transform: scale(0.92);
-  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 1.1s cubic-bezier(0.22, 1, 0.36, 1), -webkit-mask-image 0.5s ease;
+}
+
+/* Seamless radial vignette fusion into cosmic background (no boxy edges!) */
+.living-stage.is-fused .living-video {
+  -webkit-mask-image: radial-gradient(ellipse 68% 86% at 50% 50%, #000 58%, rgba(0, 0, 0, 0.65) 78%, transparent 100%);
+  mask-image: radial-gradient(ellipse 68% 86% at 50% 50%, #000 58%, rgba(0, 0, 0, 0.65) 78%, transparent 100%);
+  mix-blend-mode: screen;
+}
+
+.living-stage.is-fused .living-video.is-cover {
+  -webkit-mask-image: radial-gradient(ellipse 92% 94% at 50% 50%, #000 72%, transparent 100%);
+  mask-image: radial-gradient(ellipse 92% 94% at 50% 50%, #000 72%, transparent 100%);
+  mix-blend-mode: normal;
 }
 
 .living-stage.is-playing .living-video {
@@ -997,6 +1029,31 @@ html[data-realm="grimorio"] .venetian-grain {
 
 .living-video.is-cover {
   object-fit: cover;
+}
+
+.living-track-name {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: rgba(242, 236, 224, 0.6);
+  margin-top: 2px;
+}
+
+/* Live Hover Preview Video inside Star Map nodes */
+.map-node__hover-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.map-node:hover .map-node__hover-video {
+  opacity: 1;
 }
 
 /* Auto-hiding Floating Living HUD */

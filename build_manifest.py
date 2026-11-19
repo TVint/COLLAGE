@@ -23,11 +23,13 @@ MEDIA_DIR = os.path.join(BASE_DIR, "MEDIA")
 THUMBS_DIR = os.path.join(MEDIA_DIR, "thumbs")
 ZOOM_DIR = os.path.join(MEDIA_DIR, "zoom")
 VIDEO_DIR = os.path.join(MEDIA_DIR, "video")
+AUDIO_DIR = os.path.join(MEDIA_DIR, "audio")
 DB_JSON_PATH = os.path.join(BASE_DIR, "artworks-db.json")
 DATA_JS_PATH = os.path.join(BASE_DIR, "artworks-data.js")
 
 IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
 VIDEO_EXTS = {".mp4", ".webm", ".mov"}
+AUDIO_EXTS = {".mp3", ".m4a", ".wav", ".ogg"}
 ALCHEMICAL_STAGES = ["NIGREDO", "ALBEDO", "CITRINITAS", "RUBEDO"]
 
 ZOOM_META = [
@@ -137,6 +139,15 @@ def build_manifest():
     os.makedirs(THUMBS_DIR, exist_ok=True)
     os.makedirs(ZOOM_DIR, exist_ok=True)
     os.makedirs(VIDEO_DIR, exist_ok=True)
+    os.makedirs(AUDIO_DIR, exist_ok=True)
+
+    # Discover all available audio tracks in MEDIA/audio/
+    audio_library = sorted(
+        f"MEDIA/audio/{f}"
+        for f in os.listdir(AUDIO_DIR)
+        if os.path.splitext(f)[1].lower() in AUDIO_EXTS and not f.startswith(".")
+    )
+    video_audio_idx = 0
 
     existing = load_existing_db()
     existing_by_id = {a["id"]: a for a in existing.get("artworks", []) if "id" in a}
@@ -196,9 +207,13 @@ def build_manifest():
                 })
 
             video_rel = None
+            default_audio = None
             if videos:
                 video_rel = f"MEDIA/video/2026_{slug}.mp4"
                 video_jobs.append((os.path.join(fpath, videos[0]), video_rel))
+                if audio_library:
+                    default_audio = audio_library[video_audio_idx % len(audio_library)]
+                    video_audio_idx += 1
 
             prev = existing_by_id.get(art_id, {})
             default_formula = (
@@ -221,6 +236,7 @@ def build_manifest():
                 "src": zoom_layers[0]["src"],
                 "zoomLayers": zoom_layers,
                 "video": video_rel,
+                "audio": prev.get("audio") or default_audio,
                 "formula": prev.get("formula", default_formula),
                 "oracle": prev.get("oracle", HERMETIC_FRAGMENTS[(celestiale_count - 1) % len(HERMETIC_FRAGMENTS)]),
                 "notes": prev.get("notes", f"Lamina {roman} — Serie Celestiale 2026 di Nicola Vianello."),
@@ -283,6 +299,7 @@ def build_manifest():
     payload = {
         "generatedAt": datetime.now().isoformat(),
         "config": config,
+        "audioLibrary": audio_library,
         "total": len(artworks),
         "counts": {
             "celestiale": sum(1 for a in artworks if a["era"] == "celestiale"),

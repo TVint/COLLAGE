@@ -1,5 +1,5 @@
 window.ARTWORKS_MANIFEST = {
-  "generatedAt": "2026-11-19T02:55:38.379734",
+  "generatedAt": "2026-11-19T07:47:06.358226",
   "config": {
     "activeGate": "sound",
     "soundSequence": [
@@ -10,6 +10,16 @@ window.ARTWORKS_MANIFEST = {
     ],
     "showCuratorBypass": true
   },
+  "audioLibrary": [
+    "MEDIA/audio/01_obsidian_drone.m4a",
+    "MEDIA/audio/02_astral_glitch_pulse.m4a",
+    "MEDIA/audio/03_hermetic_void.m4a",
+    "MEDIA/audio/04_circuit_cathedral.m4a",
+    "MEDIA/audio/05_nebula_static.m4a",
+    "MEDIA/audio/06_lunar_databend.m4a",
+    "MEDIA/audio/07_alchemical_furnace.m4a",
+    "MEDIA/audio/08_stargate_resonance.m4a"
+  ],
   "total": 72,
   "counts": {
     "celestiale": 22,
@@ -50,6 +60,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": null,
+      "audio": null,
       "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
       "oracle": "Ciò che è in basso è come ciò che è in alto, per compiere i miracoli della Cosa Una.",
       "notes": "Lamina I — Serie Celestiale 2026 di Nicola Vianello."
@@ -87,6 +98,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": "MEDIA/video/2026_Astro_Queen.mp4",
+      "audio": "MEDIA/audio/01_obsidian_drone.m4a",
       "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
       "oracle": "Nella materia oscura dorme la scintilla d'oro; l'occhio che osserva separa il sottile dallo spesso.",
       "notes": "Lamina II — Serie Celestiale 2026 di Nicola Vianello."
@@ -124,6 +136,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": "MEDIA/video/2026_Beyond_Shipwreck.mp4",
+      "audio": "MEDIA/audio/02_astral_glitch_pulse.m4a",
       "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
       "oracle": "Ogni frammento strappato al tempo ricompone una mappa invisibile dello spirito.",
       "notes": "Lamina III — Serie Celestiale 2026 di Nicola Vianello."
@@ -161,6 +174,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": "MEDIA/video/2026_Brain_Network.mp4",
+      "audio": "MEDIA/audio/03_hermetic_void.m4a",
       "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
       "oracle": "Il silenzio è la chiave della prima porta; la geometria è il linguaggio della seconda.",
       "notes": "Lamina IV — Serie Celestiale 2026 di Nicola Vianello."
@@ -198,6 +212,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": null,
+      "audio": null,
       "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
       "oracle": "Dissolvi la forma conosciuta e coagula il simbolo: così nasce la nuova lamina.",
       "notes": "Lamina V — Serie Celestiale 2026 di Nicola Vianello."
@@ -235,6 +250,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": "MEDIA/video/2026_Cubik_Wizard.mp4",
+      "audio": "MEDIA/audio/04_circuit_cathedral.m4a",
       "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
       "oracle": "Tra l'ombra della laguna e il firmamento, il collage è un ponte tra due mondi.",
       "notes": "Lamina VI — Serie Celestiale 2026 di Nicola Vianello."
@@ -272,6 +288,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": "MEDIA/video/2026_Desert_Magician.mp4",
+      "audio": "MEDIA/audio/05_nebula_static.m4a",
       "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
       "oracle": "L'arco teso nel cosmo non cerca un bersaglio, ma un centro immobile.",
       "notes": "Lamina VII — Serie Celestiale 2026 di Nicola Vianello."
@@ -309,6 +326,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": null,
+      "audio": null,
       "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
       "oracle": "Sotto la carta antica scorre un circuito di luce: ogni taglio è un'incisione rituale.",
       "notes": "Lamina VIII — Serie Celestiale 2026 di Nicola Vianello."
@@ -346,6 +364,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": null,
+      "audio": null,
       "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
       "oracle": "Ciò che è in basso è come ciò che è in alto, per compiere i miracoli della Cosa Una.",
       "notes": "Lamina IX — Serie Celestiale 2026 di Nicola Vianello."
@@ -383,6 +402,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": null,
+      "audio": null,
       "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
       "oracle": "Nella materia oscura dorme la scintilla d'oro; l'occhio che osserva separa il sottile dallo spesso.",
       "notes": "Lamina X — Serie Celestiale 2026 di Nicola Vianello."
@@ -420,6 +440,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": null,
+      "audio": null,
       "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
       "oracle": "Ogni frammento strappato al tempo ricompone una mappa invisibile dello spirito.",
       "notes": "Lamina XI — Serie Celestiale 2026 di Nicola Vianello."
@@ -457,6 +478,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": "MEDIA/video/2026_Lake_Angel.mp4",
+      "audio": "MEDIA/audio/06_lunar_databend.m4a",
       "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
       "oracle": "Il silenzio è la chiave della prima porta; la geometria è il linguaggio della seconda.",
       "notes": "Lamina XII — Serie Celestiale 2026 di Nicola Vianello."
@@ -494,6 +516,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": null,
+      "audio": null,
       "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
       "oracle": "Dissolvi la forma conosciuta e coagula il simbolo: così nasce la nuova lamina.",
       "notes": "Lamina XIII — Serie Celestiale 2026 di Nicola Vianello."
@@ -531,6 +554,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": null,
+      "audio": null,
       "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
       "oracle": "Tra l'ombra della laguna e il firmamento, il collage è un ponte tra due mondi.",
       "notes": "Lamina XIV — Serie Celestiale 2026 di Nicola Vianello."
@@ -568,6 +592,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": "MEDIA/video/2026_Mysteries_Mind.mp4",
+      "audio": "MEDIA/audio/07_alchemical_furnace.m4a",
       "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
       "oracle": "L'arco teso nel cosmo non cerca un bersaglio, ma un centro immobile.",
       "notes": "Lamina XV — Serie Celestiale 2026 di Nicola Vianello."
@@ -605,6 +630,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": null,
+      "audio": null,
       "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
       "oracle": "Sotto la carta antica scorre un circuito di luce: ogni taglio è un'incisione rituale.",
       "notes": "Lamina XVI — Serie Celestiale 2026 di Nicola Vianello."
@@ -642,6 +668,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": null,
+      "audio": null,
       "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
       "oracle": "Ciò che è in basso è come ciò che è in alto, per compiere i miracoli della Cosa Una.",
       "notes": "Lamina XVII — Serie Celestiale 2026 di Nicola Vianello."
@@ -679,6 +706,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": null,
+      "audio": null,
       "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
       "oracle": "Nella materia oscura dorme la scintilla d'oro; l'occhio che osserva separa il sottile dallo spesso.",
       "notes": "Lamina XVIII — Serie Celestiale 2026 di Nicola Vianello."
@@ -716,6 +744,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": null,
+      "audio": null,
       "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
       "oracle": "Ogni frammento strappato al tempo ricompone una mappa invisibile dello spirito.",
       "notes": "Lamina XIX — Serie Celestiale 2026 di Nicola Vianello."
@@ -753,6 +782,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": "MEDIA/video/2026_Star_Gate.mp4",
+      "audio": "MEDIA/audio/08_stargate_resonance.m4a",
       "formula": "COLLAGE ESOTERICO & ANIMAZIONE · 1:1",
       "oracle": "Il silenzio è la chiave della prima porta; la geometria è il linguaggio della seconda.",
       "notes": "Lamina XX — Serie Celestiale 2026 di Nicola Vianello."
@@ -790,6 +820,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": null,
+      "audio": null,
       "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
       "oracle": "Dissolvi la forma conosciuta e coagula il simbolo: così nasce la nuova lamina.",
       "notes": "Lamina XXI — Serie Celestiale 2026 di Nicola Vianello."
@@ -827,6 +858,7 @@ window.ARTWORKS_MANIFEST = {
         }
       ],
       "video": null,
+      "audio": null,
       "formula": "COLLAGE ESOTERICO · TAVOLA QUADRATA 1:1",
       "oracle": "Tra l'ombra della laguna e il firmamento, il collage è un ponte tra due mondi.",
       "notes": "Lamina XXII — Serie Celestiale 2026 di Nicola Vianello."

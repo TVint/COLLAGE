@@ -342,28 +342,35 @@
   </div>
 
   <!-- =========================================================================
-       LIVING FULLSCREEN STAGE ("LA GRAFICA ESCE DALLA CARTA E PRENDE VITA")
+       LIVING FULLSCREEN STAGE ("LA GRAFICA ESCE DALLA CARTA E SI FONDE CON LO SFONDO")
   ========================================================================== -->
-  <div id="living-stage" class="living-stage" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Risveglio Animazione a Tutto Schermo">
+  <div id="living-stage" class="living-stage is-fused" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Risveglio Animazione a Tutto Schermo">
+    <!-- Ambient Blurred Atmospheric Mirror (fonde l'opera con tutto lo schermo) -->
+    <video id="living-video-bg" class="living-video-bg" loop muted playsinline aria-hidden="true"></video>
     <canvas id="living-particles" class="living-particles" aria-hidden="true"></canvas>
 
-    <!-- Fase 1: La carta quadrata che si stacca e si dissolve -->
+    <!-- Fase 1: La carta quadrata che si stacca dalla mappa e si dissolve -->
     <div id="living-paper-ghost" class="living-paper-ghost" aria-hidden="true">
       <img id="living-ghost-img" src="" alt="" />
     </div>
 
-    <!-- Fase 2: L'opera viva a tutto schermo -->
-    <video id="living-video" class="living-video" loop playsinline preload="auto"></video>
+    <!-- Fase 2: L'opera viva a tutto schermo con fusione radiale nello sfondo -->
+    <video id="living-video" class="living-video" loop muted playsinline preload="auto"></video>
+
+    <!-- Traccia Audio MP3 / Ambient-Glitch-Drone associata -->
+    <audio id="living-audio" loop preload="auto"></audio>
 
     <!-- HUD Flottante Minimal (si dissolve automaticamente dopo 2.5s) -->
     <div id="living-hud" class="living-hud">
       <div class="living-hud__title">
         <span id="living-roman">LAMINA I</span>
         <strong id="living-title">ASTRO QUEEN</strong>
+        <span class="living-track-name" id="living-track-name">♪ AMBIENT-GLITCH-DRONE</span>
       </div>
       <div class="living-hud__controls">
         <button type="button" class="living-btn" id="living-play-btn">⏸ PAUSA</button>
         <button type="button" class="living-btn" id="living-mute-btn">♪ AUDIO ON</button>
+        <button type="button" class="living-btn" id="living-fuse-btn">✦ FUSIONE ATTIVA</button>
         <button type="button" class="living-btn" id="living-fit-btn">⛶ RIEMPI SCHERMO</button>
         <button type="button" class="living-btn living-btn--close" id="living-close-btn">✕ RITORNA ALLA CARTA</button>
       </div>

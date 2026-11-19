@@ -173,6 +173,17 @@
             <span>NOTE CURATORIALI (RETRO LAMINA)</span>
             <textarea id="ins-notes" rows="3"></textarea>
           </label>
+
+          <!-- TRACCIA AUDIO MP3 ASSOCIATA AL VIDEO -->
+          <div class="ins-audio-box" id="ins-audio-box">
+            <span class="kicker">♪ TRACCIA AUDIO MP3 (RISVEGLIO VIDEO)</span>
+            <select id="ins-audio-select"></select>
+            <audio id="ins-audio-preview" controls style="width:100%; height:34px; display:none;"></audio>
+            <div class="ins-audio-upload">
+              <input type="file" id="ins-audio-file" accept=".mp3,.m4a,.wav,.ogg,audio/*" />
+              <button type="button" class="cms-btn btn-gold" id="btn-upload-audio">⬆ CARICA MP3</button>
+            </div>
+          </div>
         </form>
       </aside>
     </section>

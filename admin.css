@@ -386,6 +386,28 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 
 .ins-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
+.ins-audio-box {
+  margin-top: 4px;
+  padding: 12px;
+  border: 1px dashed var(--border);
+  background: rgba(230, 198, 119, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ins-audio-upload {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.ins-audio-upload input[type="file"] {
+  flex: 1;
+  font-size: 11px;
+  padding: 5px;
+}
+
 /* Toast */
 .cms-toast {
   position: fixed;

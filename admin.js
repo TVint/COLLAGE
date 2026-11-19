@@ -274,6 +274,36 @@
     document.getElementById("ins-oracle").value = art.oracle || "";
     document.getElementById("ins-notes").value = art.notes || "";
 
+    // Populate audio track selector & preview
+    const audioSelect = document.getElementById("ins-audio-select");
+    const audioPreview = document.getElementById("ins-audio-preview");
+    if (audioSelect) {
+      const lib = db.audioLibrary || [];
+      audioSelect.innerHTML = `<option value="">— Nessuna traccia audio —</option>`;
+      lib.forEach((p) => {
+        const opt = document.createElement("option");
+        opt.value = p;
+        opt.textContent = p.split("/").pop();
+        audioSelect.appendChild(opt);
+      });
+      if (art.audio && !lib.includes(art.audio)) {
+        const opt = document.createElement("option");
+        opt.value = art.audio;
+        opt.textContent = art.audio.split("/").pop();
+        audioSelect.appendChild(opt);
+      }
+      audioSelect.value = art.audio || "";
+    }
+    if (audioPreview) {
+      if (art.audio) {
+        audioPreview.src = art.audio;
+        audioPreview.style.display = "block";
+      } else {
+        audioPreview.pause();
+        audioPreview.style.display = "none";
+      }
+    }
+
     renderGrid();
   }
 
@@ -297,6 +327,59 @@
           renderGrid();
         }
       });
+    });
+
+    // Audio selector change
+    document.getElementById("ins-audio-select")?.addEventListener("change", (e) => {
+      const art = db.artworks.find((a) => a.id === selectedId);
+      if (!art) return;
+      art.audio = e.target.value || null;
+      const audioPreview = document.getElementById("ins-audio-preview");
+      if (audioPreview) {
+        if (art.audio) {
+          audioPreview.src = art.audio;
+          audioPreview.style.display = "block";
+        } else {
+          audioPreview.pause();
+          audioPreview.style.display = "none";
+        }
+      }
+      showToast("Traccia audio associata (ricorda di cliccare 💾 SALVA CODICE)");
+    });
+
+    // Audio MP3 Upload button
+    document.getElementById("btn-upload-audio")?.addEventListener("click", async () => {
+      const art = db.artworks.find((a) => a.id === selectedId);
+      const fileInput = document.getElementById("ins-audio-file");
+      const file = fileInput?.files?.[0];
+      if (!art) { showToast("Seleziona prima una lamina."); return; }
+      if (!file) { showToast("Scegli un file .mp3 / .m4a / .wav prima di caricare."); return; }
+
+      showToast(`⬆ Caricamento ${file.name} in corso...`);
+      try {
+        const buf = await file.arrayBuffer();
+        const res = await fetch("/api/upload-audio", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/octet-stream",
+            "X-Filename": file.name,
+            "X-Artwork-Id": art.id,
+          },
+          body: buf,
+        });
+        const json = await res.json();
+        if (json.ok) {
+          if (json.data) db = json.data;
+          else art.audio = json.path;
+          fileInput.value = "";
+          openInspector(art.id);
+          showToast(`✦ ${json.message} — salvata e associata!`);
+        } else {
+          showToast("Errore upload: " + (json.error || "sconosciuto"));
+        }
+      } catch (_) {
+        showToast("⚠ Server locale non attivo: avvia Avvia-Admin.command per caricare MP3.");
+      }
     });
   }
 

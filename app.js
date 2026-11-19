@@ -620,6 +620,7 @@
       node.innerHTML = `
         <div class="map-node__img-wrap">
           <img src="${art.thumb}" alt="${art.title}" loading="lazy" decoding="async" />
+          ${art.video ? `<video class="map-node__hover-video" muted loop playsinline preload="none" data-vsrc="${art.video}"></video>` : ""}
           <div class="card-badges">
             ${hasMultiZoom ? `<span class="badge-layers" title="3 Livelli di Profondità">◎ III</span>` : ""}
             ${art.video ? `<button type="button" class="badge-video" title="Risveglia Animazione a Tutto Schermo">▶ VIVA</button>` : ""}
@@ -630,6 +631,19 @@
           <span class="map-node__title">${art.title}</span>
         </div>
       `;
+
+      // Subtle live preview animation on hover for video stars
+      if (art.video) {
+        const hv = node.querySelector(".map-node__hover-video");
+        node.addEventListener("mouseenter", () => {
+          if (!hv) return;
+          if (!hv.src) hv.src = hv.dataset.vsrc;
+          hv.play().catch(() => {});
+        });
+        node.addEventListener("mouseleave", () => {
+          if (hv) hv.pause();
+        });
+      }
 
       node.querySelector(".badge-video")?.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -823,8 +837,31 @@
   }
 
   /* ========================================================================
-     8. LIGHTBOX + OCULUS TRISMEGISTI (3-LEVEL ZOOM IMMERSION)
+     8. LIGHTBOX + OCULUS TRISMEGISTI (ZERO-FLASH PRELOAD & 3-LEVEL ZOOM)
   ======================================================================== */
+  let lbLoadToken = 0;
+  const imagePreloadCache = new Map();
+
+  function preloadImage(src) {
+    if (!src) return Promise.resolve();
+    if (imagePreloadCache.has(src)) return imagePreloadCache.get(src);
+    const p = new Promise((resolve) => {
+      const im = new Image();
+      im.decoding = "async";
+      im.onload = () => {
+        if (typeof im.decode === "function") {
+          im.decode().then(resolve).catch(resolve);
+        } else {
+          resolve();
+        }
+      };
+      im.onerror = resolve;
+      im.src = src;
+    });
+    imagePreloadCache.set(src, p);
+    return p;
+  }
+
   function openLightbox(list, index) {
     state.lbList = list;
     state.lbIndex = index;
@@ -845,38 +882,62 @@
     state.lbZoomIdx = clamped;
     const layer = layers[clamped];
 
-    const imgA = document.getElementById("lb-img-a");
-    const imgB = document.getElementById("lb-img-b");
-    const incoming = state.lbBufferA ? imgB : imgA;
-    const outgoing = state.lbBufferA ? imgA : imgB;
-    state.lbBufferA = !state.lbBufferA;
-
-    if (incoming && outgoing) {
-      incoming.src = layer.src;
-      incoming.alt = `${art.title} — ${layer.label}`;
-      incoming.classList.add("is-visible");
-      outgoing.classList.remove("is-visible");
-    }
-
-    const iris = document.getElementById("lb-iris-ring");
-    if (iris && !silent) {
-      iris.classList.remove("is-pulsing");
-      void iris.offsetWidth;
-      iris.classList.add("is-pulsing");
-      playMysticBell(432 + clamped * 114, 0.55, 0.045);
-    }
-
     const badge = document.getElementById("lb-depth-badge");
     if (badge) badge.textContent = `${layer.label} // ${layer.subtitle.toUpperCase()}`;
 
     document.querySelectorAll(".oculus-btn").forEach((b, i) => {
       b.classList.toggle("is-active", i === clamped);
     });
+
+    const token = ++lbLoadToken;
+    preloadImage(layer.src).then(() => {
+      if (token !== lbLoadToken) return; // Discard stale/out-of-order loads
+
+      const imgA = document.getElementById("lb-img-a");
+      const imgB = document.getElementById("lb-img-b");
+      const incoming = state.lbBufferA ? imgB : imgA;
+      const outgoing = state.lbBufferA ? imgA : imgB;
+      state.lbBufferA = !state.lbBufferA;
+
+      if (incoming && outgoing) {
+        incoming.src = layer.src;
+        incoming.alt = `${art.title} — ${layer.label}`;
+        // Force layout before reveal so transition runs cleanly on already-decoded image
+        void incoming.offsetWidth;
+        incoming.classList.add("is-visible");
+        outgoing.classList.remove("is-visible");
+      }
+
+      const iris = document.getElementById("lb-iris-ring");
+      if (iris && !silent) {
+        iris.classList.remove("is-pulsing");
+        void iris.offsetWidth;
+        iris.classList.add("is-pulsing");
+        playMysticBell(432 + clamped * 114, 0.55, 0.045);
+      }
+    });
   }
 
   function renderLightboxSlide() {
     const art = state.lbList[state.lbIndex];
     if (!art) return;
+
+    // Immediately reset buffers to current artwork's already-cached thumbnail (ZERO wrong-image flash!)
+    lbLoadToken++;
+    const imgA = document.getElementById("lb-img-a");
+    const imgB = document.getElementById("lb-img-b");
+    if (imgA && imgB) {
+      imgA.src = art.thumb;
+      imgA.alt = art.title;
+      imgA.classList.add("is-visible");
+      imgB.classList.remove("is-visible");
+      imgB.removeAttribute("src");
+      state.lbBufferA = true;
+    }
+
+    // Eagerly preload all 3 zoom layers of this artwork so Macro -> Meso -> Micro is instantaneous!
+    const layers = art.zoomLayers || [];
+    layers.forEach((lay) => preloadImage(lay.src));
 
     document.getElementById("lb-roman").textContent = `LAMINA ${art.roman}`;
     document.getElementById("lb-title").textContent = art.title;
@@ -895,7 +956,6 @@
 
     // Build Oculus 3-Layer Dial
     const oculusBar = document.getElementById("oculus-bar");
-    const layers = art.zoomLayers || [];
     if (oculusBar) {
       if (layers.length > 1) {
         oculusBar.style.display = "grid";
@@ -916,6 +976,7 @@
       }
     }
 
+    // Upgrade from cached thumb to crisp high-res Macrocosmos once decoded
     switchOculusLayer(0, true);
   }
 
@@ -926,10 +987,11 @@
   }
 
   /* ========================================================================
-     9. LIVING FULLSCREEN STAGE ("LA GRAFICA ESCE DALLA CARTA E PRENDE VITA")
+     9. LIVING FULLSCREEN STAGE (SEAMLESS COSMIC FUSION + AMBIENT/GLITCH MP3)
   ======================================================================== */
   let livingHudTimer = null;
   let livingParticlesRaf = null;
+  let audioFadeTimer = null;
 
   function startLivingParticles() {
     const canvas = document.getElementById("living-particles");
@@ -970,13 +1032,30 @@
     }, 2800);
   }
 
+  function fadeAudioIn(audioEl, targetVol = 0.85) {
+    clearInterval(audioFadeTimer);
+    audioEl.volume = 0.02;
+    audioFadeTimer = setInterval(() => {
+      if (audioEl.volume < targetVol - 0.04) {
+        audioEl.volume = Math.min(targetVol, audioEl.volume + 0.04);
+      } else {
+        audioEl.volume = targetVol;
+        clearInterval(audioFadeTimer);
+      }
+    }, 60);
+  }
+
   function awakenArtworkFullscreen(art) {
     if (!art || !art.video) return;
     const stage = document.getElementById("living-stage");
     const ghostImg = document.getElementById("living-ghost-img");
     const vid = document.getElementById("living-video");
+    const vidBg = document.getElementById("living-video-bg");
+    const audioEl = document.getElementById("living-audio");
+    const trackLabel = document.getElementById("living-track-name");
     const playBtn = document.getElementById("living-play-btn");
     const muteBtn = document.getElementById("living-mute-btn");
+    const fuseBtn = document.getElementById("living-fuse-btn");
     const fitBtn = document.getElementById("living-fit-btn");
     if (!stage || !vid) return;
 
@@ -984,9 +1063,18 @@
     document.getElementById("living-title").textContent = art.title;
     if (ghostImg) ghostImg.src = art.thumb;
 
-    // Reset state & start paper breakout ritual
+    // Pick associated audio track (or fallback to first track in audioLibrary)
+    const fallbackLib = MANIFEST.audioLibrary || [];
+    const audioSrc = art.audio || (fallbackLib.length ? fallbackLib[0] : null);
+    if (trackLabel) {
+      trackLabel.textContent = audioSrc
+        ? `♪ ${audioSrc.split("/").pop().replace(/\.[^.]+$/, "").replace(/_/g, " ").toUpperCase()}`
+        : "♪ NESSUNA TRACCIA AUDIO";
+    }
+
+    // Reset state & start paper breakout ritual with Cosmic Fusion active by default
     stage.classList.remove("is-playing", "is-awakening", "hud-hidden");
-    stage.classList.add("is-active");
+    stage.classList.add("is-active", "is-fused");
     stage.setAttribute("aria-hidden", "false");
     void stage.offsetWidth;
     stage.classList.add("is-awakening");
@@ -995,23 +1083,38 @@
     startLivingParticles();
 
     vid.classList.remove("is-cover");
-    vid.muted = false;
+    vid.muted = true; // Audio comes cleanly from the dedicated MP3/M4A track!
     vid.src = art.video;
     vid.currentTime = 0;
 
+    if (vidBg) {
+      vidBg.src = art.video;
+      vidBg.currentTime = 0;
+    }
+
+    if (audioEl && audioSrc) {
+      audioEl.src = audioSrc;
+      audioEl.currentTime = 0;
+      audioEl.muted = false;
+    }
+
     if (playBtn) playBtn.textContent = "⏸ PAUSA";
     if (muteBtn) muteBtn.textContent = "♪ AUDIO ON";
+    if (fuseBtn) fuseBtn.textContent = "✦ FUSIONE ATTIVA";
     if (fitBtn) fitBtn.textContent = "⛶ RIEMPI SCHERMO";
 
-    // Crossfade into living fullscreen video as the paper frame dissolves
+    // Crossfade into living fullscreen video + ambient-glitch-drone audio
     setTimeout(() => {
       stage.classList.add("is-playing");
-      vid.play().catch(() => {
-        // Fallback muted autoplay if browser blocks unmuted video
-        vid.muted = true;
-        if (muteBtn) muteBtn.textContent = "🔇 MUTO";
-        vid.play().catch(() => {});
-      });
+      vid.play().catch(() => {});
+      if (vidBg) vidBg.play().catch(() => {});
+      if (audioEl && audioSrc) {
+        audioEl.play().then(() => {
+          fadeAudioIn(audioEl, 0.85);
+        }).catch(() => {
+          if (muteBtn) muteBtn.textContent = "🔇 TOCCA PER AUDIO";
+        });
+      }
     }, 520);
 
     showLivingHudTemporarily();
@@ -1020,10 +1123,15 @@
   function closeLivingFullscreen() {
     const stage = document.getElementById("living-stage");
     const vid = document.getElementById("living-video");
+    const vidBg = document.getElementById("living-video-bg");
+    const audioEl = document.getElementById("living-audio");
     if (!stage) return;
     stage.classList.remove("is-active", "is-playing", "is-awakening", "hud-hidden");
     stage.setAttribute("aria-hidden", "true");
     if (vid) { vid.pause(); vid.removeAttribute("src"); vid.load(); }
+    if (vidBg) { vidBg.pause(); vidBg.removeAttribute("src"); vidBg.load(); }
+    if (audioEl) { audioEl.pause(); audioEl.removeAttribute("src"); audioEl.load(); }
+    clearInterval(audioFadeTimer);
     if (livingParticlesRaf) cancelAnimationFrame(livingParticlesRaf);
     clearTimeout(livingHudTimer);
   }
@@ -1031,8 +1139,11 @@
   function initLivingControls() {
     const stage = document.getElementById("living-stage");
     const vid = document.getElementById("living-video");
+    const vidBg = document.getElementById("living-video-bg");
+    const audioEl = document.getElementById("living-audio");
     const playBtn = document.getElementById("living-play-btn");
     const muteBtn = document.getElementById("living-mute-btn");
+    const fuseBtn = document.getElementById("living-fuse-btn");
     const fitBtn = document.getElementById("living-fit-btn");
 
     stage?.addEventListener("mousemove", showLivingHudTemporarily);
@@ -1042,15 +1153,37 @@
 
     playBtn?.addEventListener("click", () => {
       if (!vid) return;
-      if (vid.paused) { vid.play(); playBtn.textContent = "⏸ PAUSA"; }
-      else { vid.pause(); playBtn.textContent = "▶ RIPRENDI"; }
+      if (vid.paused) {
+        vid.play().catch(() => {});
+        if (vidBg) vidBg.play().catch(() => {});
+        if (audioEl && audioEl.src && !audioEl.muted) audioEl.play().catch(() => {});
+        playBtn.textContent = "⏸ PAUSA";
+      } else {
+        vid.pause();
+        if (vidBg) vidBg.pause();
+        if (audioEl) audioEl.pause();
+        playBtn.textContent = "▶ RIPRENDI";
+      }
       showLivingHudTemporarily();
     });
 
     muteBtn?.addEventListener("click", () => {
-      if (!vid) return;
-      vid.muted = !vid.muted;
-      muteBtn.textContent = vid.muted ? "🔇 MUTO" : "♪ AUDIO ON";
+      if (!audioEl) return;
+      if (audioEl.paused && audioEl.src) {
+        audioEl.muted = false;
+        audioEl.play().then(() => fadeAudioIn(audioEl, 0.85)).catch(() => {});
+        muteBtn.textContent = "♪ AUDIO ON";
+      } else {
+        audioEl.muted = !audioEl.muted;
+        muteBtn.textContent = audioEl.muted ? "🔇 MUTO" : "♪ AUDIO ON";
+      }
+      showLivingHudTemporarily();
+    });
+
+    fuseBtn?.addEventListener("click", () => {
+      if (!stage) return;
+      const fused = stage.classList.toggle("is-fused");
+      fuseBtn.textContent = fused ? "✦ FUSIONE ATTIVA" : "▢ BORDI NETTI";
       showLivingHudTemporarily();
     });
 

@@ -8,6 +8,7 @@ Provides:
   POST /api/rescan    -> Re-runs build_manifest.py to detect new 2025/2026 collages & videos
 """
 import os
+import re
 import sys
 import json
 import shutil
@@ -20,6 +21,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_JSON_PATH = os.path.join(BASE_DIR, "artworks-db.json")
 DATA_JS_PATH = os.path.join(BASE_DIR, "artworks-data.js")
 BACKUP_DIR = os.path.join(BASE_DIR, "backups")
+AUDIO_DIR = os.path.join(BASE_DIR, "MEDIA", "audio")
+ALLOWED_AUDIO_EXTS = {".mp3", ".m4a", ".wav", ".ogg"}
 
 
 def save_db(payload: dict):
@@ -91,6 +94,45 @@ class ScriptoriumHandler(SimpleHTTPRequestHandler):
                     "message": f"Sincronizzazione completata: {data['total']} lamine ({data['counts']['videos']} video).",
                     "data": data,
                 })
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)}, status=500)
+
+        if path == "/api/upload-audio":
+            try:
+                os.makedirs(AUDIO_DIR, exist_ok=True)
+                raw_name = self.headers.get("X-Filename", "track.mp3")
+                art_id = self.headers.get("X-Artwork-Id", "")
+                base_name = os.path.basename(raw_name)
+                stem, ext = os.path.splitext(base_name)
+                ext = ext.lower() if ext.lower() in ALLOWED_AUDIO_EXTS else ".mp3"
+                safe_stem = re.sub(r"[^a-zA-Z0-9_-]+", "_", stem).strip("_") or "custom_track"
+                final_name = f"custom_{safe_stem}{ext}"
+                dst_abs = os.path.join(AUDIO_DIR, final_name)
+                rel_path = f"MEDIA/audio/{final_name}"
+
+                length = int(self.headers.get("Content-Length", "0"))
+                if length <= 0 or length > 50 * 1024 * 1024:
+                    return self.send_json({"ok": False, "error": "Dimensione file audio non valida (max 50MB)."}, status=400)
+                audio_bytes = self.rfile.read(length)
+                with open(dst_abs, "wb") as af:
+                    af.write(audio_bytes)
+
+                # Update DB immediately if artwork id provided
+                if os.path.exists(DB_JSON_PATH):
+                    with open(DB_JSON_PATH, "r", encoding="utf-8") as f:
+                        db = json.load(f)
+                    lib = set(db.get("audioLibrary", []))
+                    lib.add(rel_path)
+                    db["audioLibrary"] = sorted(lib)
+                    if art_id:
+                        for a in db.get("artworks", []):
+                            if a.get("id") == art_id:
+                                a["audio"] = rel_path
+                                break
+                    saved = save_db(db)
+                    return self.send_json({"ok": True, "path": rel_path, "message": f"Traccia caricata: {final_name}", "data": saved})
+
+                return self.send_json({"ok": True, "path": rel_path, "message": f"Traccia caricata: {final_name}"})
             except Exception as exc:
                 return self.send_json({"ok": False, "error": str(exc)}, status=500)
 
